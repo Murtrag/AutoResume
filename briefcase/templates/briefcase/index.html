@@ -1,0 +1,64 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<title>{{title}}</title>
+<meta name="description" content="The HTML5 Herald">
+<meta name="author" content="Czernik">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="{% static 'resume/style.css' %}">
+{% endblock %}
+
+{% block title %}
+<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">{{title}} - {{basic_info.name}}</h1>
+	<div>
+		{{basic_info.address}} 
+		<i class="fa fa-circle fa-3" aria-hidden="true"></i> 
+		{{basic_info.phone_number}} 
+		<i class="fa fa-circle fa-3" aria-hidden="true"></i> 
+		<a href="mailto:{{basic_info.email}}">{{basic_info.email}}</a></p>
+	</div>
+{% endblock %}
+
+{%block content%}
+{% include 'briefcase/modal.html' %}
+
+<hr class="mt-2 mb-5">
+
+<div class="row text-center text-lg-left">
+
+	{% for item in object_list %}
+	<div class="col-lg-3 col-md-4 col-6">
+		<a href="#" class="d-block mb-4 h-100">
+			<figure class="figure" data-toggle="modal" data-target="#zoomElement">
+				<img class="img-fluid img-thumbnail" src="{{item.image.url}}" alt="">
+				<figcaption class="figure-caption">{{item.description}}</figcaption>
+				<input
+					type="hidden"
+					class="modal_data"
+					data-title="{{item.name}}"
+					data-description="{{item.description}}"
+					data-url="{{item.url}}"
+					data-image-height="{{item.image.height}}"
+					data-image-width="{{item.image.width}}"
+					>
+			</figure>
+		</a>
+	</div>
+	{% empty %}
+		<p>No articles yet.</p>
+	{% endfor %}
+
+</div>
+
+</div>
+{% endblock%}
+
+{% block scripts%}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{% static 'briefcase/modal.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {% block header%}
+  {% endblock %}
+
+</head>
+
+
+<body>
+	<div class="container">
+
+		<div class="card">
+			<div class="card-body">
+				<a href="{% url 'resume' info_id=basic_info.info_id %}" class="btn btn-outline-dark">Resumé</a>
+				{% for button in briefcase%}
+				<a href="{% url 'briefcase' info_id=basic_info.info_id type=button.name %}" class="btn btn-outline-dark">Documents</a>
+				{% endfor %}
+				<a href="{{url_button}}" class="btn btn-outline-dark">GitHub</a>
+
+				<header class="text-center">
+					{% block title %} {% endblock %}
+				</header>
+					{% block content %}{% endblock%}
+				<footer>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

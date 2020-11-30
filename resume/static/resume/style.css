@@ -1,0 +1,40 @@
+.fa-3{
+	font-size: 0.7em;
+	vertical-align:middle;
+}
+hr.style-one {
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+.work__time, .school__time{
+	font-weight: 700;
+}
+
+.indent > *{
+	padding-left: 4.5%;
+}
+body{
+	background-color: silver;
+}
+.skills__container > div > *{
+	border: 1px solid black;
+	border-radius: 15%;
+	margin-bottom: 3vh;
+}
+
+.legend{
+	background-color: white;
+	position: relative;
+	bottom:1.4vh;
+}
+.progress{
+	margin: 3%;
+}
+.progress:first-of-type{
+	margin-top: 0;
+}
