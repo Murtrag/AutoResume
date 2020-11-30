@@ -1,6 +1,8 @@
 from django.db import models
+from resume.models import BasicInfo
 
 class Type(models.Model):
+    user = models.ForeignKey(BasicInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     items = models.ManyToManyField('Item')
 

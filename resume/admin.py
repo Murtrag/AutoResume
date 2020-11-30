@@ -6,5 +6,5 @@ admin.site.register(models.Section)
 admin.site.register(models.ListItem)
 admin.site.register(models.GraphItem)
 admin.site.register(models.SectionContent)
+admin.site.register(models.GitHubButton)
 
-# Register your models here.
