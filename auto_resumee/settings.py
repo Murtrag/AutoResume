@@ -25,7 +25,7 @@ SECRET_KEY = 'vz)b9&9mz73)vyx9-7r1j13wb1^won+b7bao0-4w72yuu&unv_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["murtrag.pythonanywhere.com"]
 
 
 # Application definition
