@@ -4,3 +4,5 @@
 media/galery/*
 .env
 /* download/* */
+core/settings.py
+db.sqlite3

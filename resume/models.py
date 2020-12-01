@@ -33,7 +33,7 @@ class BasicInfo(models.Model):
         return f"{self.name} - {self.email} | {self.info_id}"
 
 class Section(models.Model):
-    user = models.ForeignKey("BasicInfo", on_delete=models.CASCADE)
+    user = models.ForeignKey(BasicInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     icon = models.CharField(max_length=20)
     section_type = models.IntegerField(
