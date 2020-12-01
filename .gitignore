@@ -3,4 +3,4 @@
 **/__pycache__/*
 media/galery/*
 .env
-**/download/*
+download/*
