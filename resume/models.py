@@ -6,6 +6,8 @@ from numpy import array_split
 from hashlib import md5
 from string import ascii_letters, digits
 from random import choice
+from re import sub
+
 # md5(b'test').hexdigest()
 
 
@@ -41,6 +43,10 @@ class Section(models.Model):
             )
     content = models.OneToOneField("SectionContent", on_delete=models.CASCADE)
     position = models.IntegerField(help_text="Determines position on resume, section with the smallest number will be on  the top", default=0)
+
+    @property
+    def section_class_name(self):
+        return sub(r'\W','', sub(r'\s','_', self.name)).lower()
 
     def __str__(self):
         return f"{self.user} | {self.name}"

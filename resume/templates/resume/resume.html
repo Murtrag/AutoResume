@@ -25,11 +25,11 @@
 
 {%block content%}
 				{% for section in sections%}
-					<section class="card-body__{{section.name}}"> <!-- @TODO snakecase name  -->
+					<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
 						<h2><i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h2>
 					<hr style="style-one">
 					{% if section.section_type == section_types.Text %}
-						<div class="{{section.name}}__description indent"><!-- @TODO snakecase name  -->
+						<div class="{{section.section_class_name}}__description indent">
 							<p>
 								{% bbcode section.content.text %}	
 							</p>

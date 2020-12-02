@@ -7,8 +7,8 @@ $('.figure').on('click', function(){
 
 	$('.dynamic_image').attr('src', image.attr('src'));
 	$('.dynamic_title').text(input.data('title'));
-	$('.dynamic_description').text(input.data('description'));
-	$('.dynamic_url').text(input.data('url'));
+	$('.dynamic_description').html(input.data('description'));
+	// $('.dynamic_url').text(input.data('url'));
 	$('.dynamic_image').css({
 		"height": imageHeight+"px",
 		"width": imageWidth+"px"
