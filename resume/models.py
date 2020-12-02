@@ -6,6 +6,8 @@ from numpy import array_split
 from hashlib import md5
 from string import ascii_letters, digits
 from random import choice
+from re import sub
+
 # md5(b'test').hexdigest()
 
 
@@ -42,13 +44,17 @@ class Section(models.Model):
     content = models.OneToOneField("SectionContent", on_delete=models.CASCADE)
     position = models.IntegerField(help_text="Determines position on resume, section with the smallest number will be on  the top", default=0)
 
+    @property
+    def section_class_name(self):
+        return sub(r'\W','', sub(r'\s','_', self.name)).lower()
+
     def __str__(self):
         return f"{self.user} | {self.name}"
 
 
 class ListItem(models.Model):
     headline = models.CharField(max_length=50)
-    description = models.TextField()
+    description = models.TextField(help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode")
     year = models.CharField(max_length=25)
 
     def __str__(self):
@@ -69,7 +75,7 @@ class SectionContent(models.Model):
             help_text="this field does not have anny effect on resume it is just a human readable name for an object"
             ) #TODO make it automatic in admin.py
 
-    text = models.TextField(blank=True)
+    text = models.TextField(blank=True, help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode")
     list_item = models.ManyToManyField("ListItem", blank=True)
     graph_item = models.ManyToManyField("GraphItem", blank=True)
 

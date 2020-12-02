@@ -16,7 +16,7 @@
 			<div class="card-body">
 				<a href="{% url 'resume' info_id=basic_info.info_id %}" class="btn btn-outline-dark">Resumé</a>
 				{% for button in briefcase%}
-				<a href="{% url 'briefcase' info_id=basic_info.info_id type=button.name %}" class="btn btn-outline-dark">Documents</a>
+				<a href="{% url 'briefcase' info_id=basic_info.info_id type=button.name %}" class="btn btn-outline-dark">{{button.name}}</a>
 				{% endfor %}
 				<a href="{{github_url}}" class="btn btn-outline-dark">GitHub</a>
 

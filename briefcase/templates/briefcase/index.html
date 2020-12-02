@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 {% load static %}
+{% load bbcode_tags %}
 
 {% block header %}
 <title>{{title}}</title>
@@ -34,13 +35,12 @@
 		<a href="#" class="d-block mb-4 h-100">
 			<figure class="figure" data-toggle="modal" data-target="#zoomElement">
 				<img class="img-fluid img-thumbnail" src="{{item.image.url}}" alt="">
-				<figcaption class="figure-caption">{{item.description}}</figcaption>
+				<figcaption class="figure-caption">{% bbcode item.name %}</figcaption>
 				<input
 					type="hidden"
 					class="modal_data"
 					data-title="{{item.name}}"
-					data-description="{{item.description}}"
-					data-url="{{item.url}}"
+					data-description="{% bbcode item.description %}"
 					data-image-height="{{item.image.height}}"
 					data-image-width="{{item.image.width}}"
 					>
