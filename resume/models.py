@@ -48,7 +48,7 @@ class Section(models.Model):
 
 class ListItem(models.Model):
     headline = models.CharField(max_length=50)
-    description = models.TextField()
+    description = models.TextField(help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode")
     year = models.CharField(max_length=25)
 
     def __str__(self):
@@ -69,7 +69,7 @@ class SectionContent(models.Model):
             help_text="this field does not have anny effect on resume it is just a human readable name for an object"
             ) #TODO make it automatic in admin.py
 
-    text = models.TextField(blank=True)
+    text = models.TextField(blank=True, help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode")
     list_item = models.ManyToManyField("ListItem", blank=True)
     graph_item = models.ManyToManyField("GraphItem", blank=True)
 
