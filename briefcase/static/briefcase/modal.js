@@ -8,12 +8,8 @@ $('.figure').on('click', function(){
 	$('.dynamic_image').attr('src', image.attr('src'));
 	$('.dynamic_title').text(input.data('title'));
 	$('.dynamic_description').html(input.data('description'));
-	$('.dynamic_image').css({
-		"height": imageHeight+"px",
-		"width": imageWidth+"px"
-	});
 	if(parseInt(imageWidth,10)>500){
-		modal.css("max-width", imageWidth+600+"px")
+		modal.css("max-width", "62vw")
 	}else{
 		modal.css("max-width", "500px")
 	}
