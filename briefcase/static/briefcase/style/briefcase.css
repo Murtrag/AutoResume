@@ -1,0 +1,10 @@
+.img-thumbnail{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.figure .img-thumbnail{
+	max-height: 11.1rem
+}
+
+
