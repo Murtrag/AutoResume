@@ -35,15 +35,27 @@
 	<div class="col-lg-3 col-md-4 col-6">
 		<a href="#" class="d-block mb-4 h-100">
 			<figure class="figure" data-toggle="modal" data-target="#zoomElement">
-				<img class="img-fluid img-thumbnail" src="{{item.image.url}}" alt="">
+				<img class="img-fluid img-thumbnail" src="{{item.get_primary_image.image.url}}" alt="">
+				{% for image in item.images.all %}
+				<img 
+					style="display:none" 
+					class="modal_img"
+				 	width="{{image.image.width}}"
+					height="{{image.image.height}}"
+					src="{{image.image.url}}"
+					alt="{% bbcode image.name %}"
+					data-name="{{ image.name }}"
+					data-description="{{ image.description }}"
+					data-color="{{image.text_color}}"
+					>
+
+				{% endfor %}
 				<figcaption class="figure-caption">{% bbcode item.name %}</figcaption>
 				<input
 					type="hidden"
 					class="modal_data"
 					data-title="{{item.name}}"
-					data-description="{% bbcode item.description %}"
-					data-image-height="{{item.image.height}}"
-					data-image-width="{{item.image.width}}"
+					data-description='{% bbcode item.description %}'
 					>
 			</figure>
 		</a>
