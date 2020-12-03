@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="{% static 'resume/style.css' %}">
+  <link rel="stylesheet" href="{% static 'style/resume.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -50,7 +50,7 @@
 						{% endif %}
 					{% elif section.section_type == section_types.Graph %}
 					<div class="skills__container indent row">
-						{% for column in section.content.get_graph_grouped %} <!-- We have 2 cols -->
+						{% for column in section.content.get_graph_grouped %}
 							<div class="container__frontend col-sm-6">
 								{% for item in column%}
 									<div class="col-sm-12">
