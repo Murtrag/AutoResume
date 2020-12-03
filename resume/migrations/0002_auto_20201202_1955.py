@@ -6,18 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('resume', '0001_initial'),
+        ("resume", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='listitem',
-            name='description',
-            field=models.TextField(help_text='This field supports bbcode https://en.wikipedia.org/wiki/BBCode'),
+            model_name="listitem",
+            name="description",
+            field=models.TextField(
+                help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode"
+            ),
         ),
         migrations.AlterField(
-            model_name='sectioncontent',
-            name='text',
-            field=models.TextField(blank=True, help_text='This field supports bbcode https://en.wikipedia.org/wiki/BBCode'),
+            model_name="sectioncontent",
+            name="text",
+            field=models.TextField(
+                blank=True,
+                help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",
+            ),
         ),
     ]

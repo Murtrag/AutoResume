@@ -7,10 +7,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path('^resume/', include("resume.urls") ),
-    re_path('^briefcase/', include("briefcase.urls") )
-
+    path("admin/", admin.site.urls),
+    re_path("^resume/", include("resume.urls")),
+    re_path("^briefcase/", include("briefcase.urls")),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

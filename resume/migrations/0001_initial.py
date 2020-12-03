@@ -9,67 +9,165 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='BasicInfo',
+            name="BasicInfo",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('info_id', models.CharField(blank=True, editable=False, max_length=32, null=True)),
-                ('name', models.CharField(max_length=25)),
-                ('address', models.CharField(max_length=45)),
-                ('phone_number', models.CharField(max_length=15)),
-                ('email', models.CharField(max_length=45)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "info_id",
+                    models.CharField(
+                        blank=True, editable=False, max_length=32, null=True
+                    ),
+                ),
+                ("name", models.CharField(max_length=25)),
+                ("address", models.CharField(max_length=45)),
+                ("phone_number", models.CharField(max_length=15)),
+                ("email", models.CharField(max_length=45)),
             ],
         ),
         migrations.CreateModel(
-            name='GraphItem',
+            name="GraphItem",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('category', models.CharField(max_length=50)),
-                ('name', models.CharField(max_length=50)),
-                ('level', models.IntegerField(validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100)])),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("category", models.CharField(max_length=50)),
+                ("name", models.CharField(max_length=50)),
+                (
+                    "level",
+                    models.IntegerField(
+                        validators=[
+                            django.core.validators.MinValueValidator(0),
+                            django.core.validators.MaxValueValidator(100),
+                        ]
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ListItem',
+            name="ListItem",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('headline', models.CharField(max_length=50)),
-                ('description', models.TextField()),
-                ('year', models.CharField(max_length=25)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("headline", models.CharField(max_length=50)),
+                ("description", models.TextField()),
+                ("year", models.CharField(max_length=25)),
             ],
         ),
         migrations.CreateModel(
-            name='SectionContent',
+            name="SectionContent",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text='this field does not have anny effect on resume it is just a human readable name for an object', max_length=20)),
-                ('text', models.TextField(blank=True)),
-                ('graph_item', models.ManyToManyField(blank=True, to='resume.GraphItem')),
-                ('list_item', models.ManyToManyField(blank=True, to='resume.ListItem')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        help_text="this field does not have anny effect on resume it is just a human readable name for an object",
+                        max_length=20,
+                    ),
+                ),
+                ("text", models.TextField(blank=True)),
+                (
+                    "graph_item",
+                    models.ManyToManyField(blank=True, to="resume.GraphItem"),
+                ),
+                ("list_item", models.ManyToManyField(blank=True, to="resume.ListItem")),
             ],
         ),
         migrations.CreateModel(
-            name='Section',
+            name="Section",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('icon', models.CharField(max_length=20)),
-                ('section_type', models.IntegerField(choices=[(0, 'Text'), (1, 'List'), (2, 'Graph')])),
-                ('position', models.IntegerField(default=0, help_text='Determines position on resume, section with the smallest number will be on  the top')),
-                ('content', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='resume.sectioncontent')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='resume.basicinfo')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("icon", models.CharField(max_length=20)),
+                (
+                    "section_type",
+                    models.IntegerField(
+                        choices=[(0, "Text"), (1, "List"), (2, "Graph")]
+                    ),
+                ),
+                (
+                    "position",
+                    models.IntegerField(
+                        default=0,
+                        help_text="Determines position on resume, section with the smallest number will be on  the top",
+                    ),
+                ),
+                (
+                    "content",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="resume.sectioncontent",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="resume.basicinfo",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='GitHubButton',
+            name="GitHubButton",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('url', models.CharField(max_length=60)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='resume.basicinfo')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("url", models.CharField(max_length=60)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="resume.basicinfo",
+                    ),
+                ),
             ],
         ),
     ]

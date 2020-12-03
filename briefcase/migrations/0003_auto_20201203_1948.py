@@ -6,31 +6,39 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('briefcase', '0002_remove_item_url'),
+        ("briefcase", "0002_remove_item_url"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Image',
+            name="Image",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='galery')),
-                ('name', models.CharField(blank=True, max_length=25)),
-                ('description', models.TextField(blank=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="galery")),
+                ("name", models.CharField(blank=True, max_length=25)),
+                ("description", models.TextField(blank=True)),
             ],
         ),
         migrations.AlterField(
-            model_name='item',
-            name='description',
+            model_name="item",
+            name="description",
             field=models.TextField(blank=True),
         ),
         migrations.RemoveField(
-            model_name='item',
-            name='image',
+            model_name="item",
+            name="image",
         ),
         migrations.AddField(
-            model_name='item',
-            name='image',
-            field=models.ManyToManyField(to='briefcase.Image'),
+            model_name="item",
+            name="image",
+            field=models.ManyToManyField(to="briefcase.Image"),
         ),
     ]
