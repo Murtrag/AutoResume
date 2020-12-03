@@ -1,8 +1,3 @@
-	// <div class="carousel-inner">
-	// 	<div class="carousel-item active">
-	// 		<img class="d-block w-100 dynamic_image" src="" alt="First slide">
-	// 	</div>
-	// </div>
 $('.figure').on('click', function(){
 	const image = $(this).find('img')
 	const modal = $(".modal .modal-dialog")

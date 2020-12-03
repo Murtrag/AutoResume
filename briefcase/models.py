@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from resume.models import BasicInfo
 
@@ -26,10 +27,10 @@ class Item(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to="galery")
-    name = models.CharField(max_length=25, blank=True)
+    name = models.CharField(max_length=25, blank=True, null=True)
     description = models.TextField(blank=True)
     text_color = models.CharField(max_length=25, default="white")
     primary = models.BooleanField(blank=True, default=True)
 
     def __str__(self):
-        return self.name
+        return self.name or os.path.splitext(os.path.basename(self.image.name))[0]

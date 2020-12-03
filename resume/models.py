@@ -84,7 +84,7 @@ class SectionContent(models.Model):
     name = models.CharField(
         max_length=20,
         help_text="this field does not have anny effect on resume it is just a human readable name for an object",
-    )  # TODO make it automatic in admin.py
+    )
 
     text = models.TextField(
         blank=True,
