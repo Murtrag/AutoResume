@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="{% static 'style/resume.css' %}">
 <link rel="stylesheet" href="{% static 'style/briefcase.css' %}">
+<link rel="stylesheet" href="{% static 'style/main.css' %}">
 {% endblock %}
 
 {% block title %}
-<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">{{title}} - {{basic_info.name}}</h1>
+<h1 class="font-weight-light text-center mt-4 mb-0">{{title}} - {{basic_info.name}}</h1>
 	<div>
 		{{basic_info.address}} 
 		<i class="fa fa-circle fa-3" aria-hidden="true"></i> 
@@ -29,7 +29,7 @@
 
 <hr class="mt-2 mb-5">
 
-<div class="row text-center text-lg-left">
+<div class="row text-center ">
 
 	{% for item in object_list %}
 	<div class="col-lg-3 col-md-4 col-6">
