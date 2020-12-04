@@ -7,6 +7,7 @@ so everyone can reaarange it however it floots his boat.
 <p align="center">
     <img src="https://i.imgur.com/TBKzjAS.png"/>
 </p>
+
 ## Installation
 1. Pull project
 ```
