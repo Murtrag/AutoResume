@@ -23,5 +23,17 @@ pip3 install -r requirements.txt
 ```
 4. You are ready to go :)
 ## Usage
+One should manage resumés data from django admin `http://project-address.com/admin`
+<br />
+<img src="https://imgur.com/nVvadIj.png"/>
+<br />
+* In Basic Info view we can create a brand new resumé sheet
+* In Git hub buttos we can attach a link address to our git hub button
+* New Sections should be created in Sections view and all its sub elements
+* Graph items, List items & Section content are sub models of Sections and you can visit this places in order to modify already created elements of Section
+
+*__NOTE:__ When you create a section element and create new section content element it shouldn't have all fields filled up but only those related to Section's `section type` field
+so for `text` value you should fill up only `Section type's` Text field, for `list` value list item field and for `graph` graph item*
+
 ## Goals
 ## License
