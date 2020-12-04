@@ -35,7 +35,8 @@
 	<div class="col-lg-3 col-md-4 col-6">
 		<a href="#" class="d-block mb-4 h-100">
 			<figure class="figure" data-toggle="modal" data-target="#zoomElement">
-				<img class="img-fluid img-thumbnail" src="{{item.get_primary_image.image.url}}" alt="">
+				<img class="img-fluid img-thumbnail " src="{{item.get_primary_image.image.url}}" alt="">
+
 				{% for image in item.images.all %}
 				<img 
 					style="display:none" 
@@ -65,8 +66,12 @@
 	{% endfor %}
 
 </div>
+{% include 'briefcase/paginator.html' %}
 
 </div>
+
+
+
 {% endblock%}
 
 {% block scripts%}
