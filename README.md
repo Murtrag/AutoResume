@@ -11,17 +11,17 @@ so everyone can reaarange it however it floots his boat.
 ## Installation
 1. Pull project
 ```
-2. git pull https://github.com/Murtrag/AutoResume.git
+git pull https://github.com/Murtrag/AutoResume.git
 ```
-3. Install requirements
+2. Install requirements
 ```
-4. pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
-5. Make migrations
+3. Make migrations
 ```
 ./manage.py migrate
 ```
-6. You are ready to go :)
+4. You are ready to go :)
 ## Usage
 ## Goals
 ## License
