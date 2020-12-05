@@ -13,7 +13,7 @@ class Type(models.Model):
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=35)
     description = models.TextField(blank=True)
     images = models.ManyToManyField("Image")
 
