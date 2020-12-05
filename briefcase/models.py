@@ -27,7 +27,7 @@ class Item(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to="galery")
-    name = models.CharField(max_length=25, blank=True, null=True)
+    name = models.CharField(max_length=25, blank=True)
     description = models.TextField(blank=True)
     text_color = models.CharField(max_length=25, default="white")
     primary = models.BooleanField(blank=True, default=True)

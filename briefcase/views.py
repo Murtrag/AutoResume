@@ -7,7 +7,7 @@ from resume.models import BasicInfo
 
 
 class DocumentListView(ListView):
-    paginate_by = 3
+    paginate_by = 4
     template_name = "briefcase/index.html"
 
     def get_context_data(self, **kwargs):
