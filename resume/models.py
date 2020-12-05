@@ -59,11 +59,11 @@ class Section(models.Model):
 
 
 class ListItem(models.Model):
-    headline = models.CharField(max_length=50)
+    headline = models.CharField(max_length=90)
     description = models.TextField(
         help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode"
     )
-    year = models.CharField(max_length=25)
+    year = models.CharField(max_length=25, blank=True)
 
     def __str__(self):
         return f"{self.headline} | {self.year}"

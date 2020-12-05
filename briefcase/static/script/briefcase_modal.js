@@ -5,7 +5,6 @@ $('.figure').on('click', function(){
 	const imageWidth = inputData['image-width']
 	const imageHeight = inputData['image-height'] 
 	$('.dynamic_title').text(inputData['title']);
-	$('.dynamic_description').html(inputData['description']);
 
 
 	const carouselInner = $('.carousel-inner').empty();
