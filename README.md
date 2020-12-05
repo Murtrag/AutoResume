@@ -23,6 +23,7 @@ pip3 install -r requirements.txt
 ```
 4. You are ready to go :)
 ## Usage
+### Set up new resumé sheet 
 One should manage resumés data from django admin `http://project-address.com/admin`
 <br />
 <img src="https://imgur.com/nVvadIj.png"/>
@@ -35,5 +36,14 @@ One should manage resumés data from django admin `http://project-address.com/ad
 *__NOTE:__ When you create a section element and create new section content element it shouldn't have all fields filled up but only those related to Section's `section type` field
 so for `text` value you should fill up only `Section type's` Text field, for `list` value list item field and for `graph` graph item*
 
-## Goals
+### Set up buttons
+<br />
+<img src="https://imgur.com/t0r5SCr.png"/>
+<br />
+All buttons should be initiated from `Types` section so the items and images through items manager.
+
+
+
+<!-- ## Goals -->
 ## License
+MIT License.
