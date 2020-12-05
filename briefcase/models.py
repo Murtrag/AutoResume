@@ -33,4 +33,6 @@ class Image(models.Model):
     primary = models.BooleanField(blank=True, default=True)
 
     def __str__(self):
-        return self.name or os.path.splitext(os.path.basename(self.image.name))[0]
+        return "image: {}".format(
+            self.name or os.path.splitext(os.path.basename(self.image.name))[0]
+        )
