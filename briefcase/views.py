@@ -22,4 +22,4 @@ class DocumentListView(ListView):
 
     def get_queryset(self):
         model = Type.objects.get(name=self.kwargs["type"])
-        return model.items.all()
+        return model.items.all().order_by("position")

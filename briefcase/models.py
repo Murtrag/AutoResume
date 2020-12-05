@@ -16,6 +16,7 @@ class Item(models.Model):
     name = models.CharField(max_length=35)
     description = models.TextField(blank=True)
     images = models.ManyToManyField("Image")
+    position = models.IntegerField()
 
     @property
     def get_primary_image(self):
