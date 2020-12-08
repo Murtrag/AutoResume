@@ -40,4 +40,7 @@ body{
 	.card__header p{
 		display: block !important;
 	}
+	.skills__container{
+		margin-top: 2rem;
+	}
 }
