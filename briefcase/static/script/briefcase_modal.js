@@ -8,11 +8,13 @@ $('.figure').on('click', function(){
 
 
 	const carouselInner = $('.carousel-inner').empty();
+	const carouselIndicators = $('.carousel-indicators').empty();
 	let modal_adjusted = false;
 	$(this).find(".modal_img").each(function(i,e){
 		console.log(e)
+		const active = (i==0)? 'active':'';
 		carouselInner.prepend(`
-			<div class="carousel-item ${(i==0)? 'active':''}">
+			<div class="carousel-item ${active}">
 				<img class="d-block w-100 dynamic_image" src="${e.src}" alt="First slide">
 				<div class="carousel-caption d-none d-md-block">
 					<h5 style="color:${$(e).data('color')}">${$(e).data('name')}</h5>
@@ -21,6 +23,9 @@ $('.figure').on('click', function(){
 			</div>
 
 			`)
+		carouselIndicators.prepend(`
+		<li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="${active}"></li>
+			`);
 
 		if(modal_adjusted === false){ 
 			if(e.width>500){
