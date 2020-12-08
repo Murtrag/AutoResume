@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.sites.models import Site
 
 from itertools import groupby
 from numpy import array_split
@@ -37,6 +38,16 @@ class BasicInfo(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.email} | {self.info_id}"
+
+
+class BasicInfoLink(BasicInfo):
+    class Meta:
+        proxy = True
+        verbose_name = "Resumies list"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return f"{Site.objects.get_current().domain}/resume/{self.info_id}"
 
 
 class Section(models.Model):

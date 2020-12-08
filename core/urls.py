@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, re_path, include
-from resume import urls
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

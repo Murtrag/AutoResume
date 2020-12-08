@@ -1,5 +1,6 @@
 from django.contrib import admin
 from resume import models
+from django.shortcuts import redirect
 
 
 class BasicInfoAdmin(admin.ModelAdmin):
@@ -44,3 +45,13 @@ class SectionContentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.SectionContent, SectionContentAdmin)
+
+
+class BasicInfoLinkAdmin(admin.ModelAdmin):
+    def _changeform_view(self, request, object_id, form_url, extra_context):
+        return redirect(
+            "resume", info_id=models.BasicInfo.objects.get(pk=object_id).info_id
+        )
+
+
+admin.site.register(models.BasicInfoLink, BasicInfoLinkAdmin)
