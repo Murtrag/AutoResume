@@ -6,12 +6,10 @@ $('.figure').on('click', function(){
 	const imageHeight = inputData['image-height'] 
 	$('.dynamic_title').text(inputData['title']);
 
-
 	const carouselInner = $('.carousel-inner').empty();
 	const carouselIndicators = $('.carousel-indicators').empty();
 	let modal_adjusted = false;
 	$(this).find(".modal_img").each(function(i,e){
-		console.log(e)
 		const active = (i==0)? 'active':'';
 		carouselInner.prepend(`
 			<div class="carousel-item ${active}">
