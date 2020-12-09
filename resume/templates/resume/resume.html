@@ -57,9 +57,19 @@
 									<div class="col-sm-12">
 									<span class="legend">{{item.0}}</span>
 									{% for sub_item in item.1%}
-										<div class="progress">
-											<span class="col-sm-4">{{sub_item.name}}</span>
-											<div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" aria-valuenow="{{sub_item.level}}" aria-valuemin="0" aria-valuemax="100" style="width: calc(75/(100/{{sub_item.level}})*1%)"></div>
+										<div class="col-12">
+											<div class="col-sm-4 col-2">{{sub_item.name}}</div>
+												<div class="col-sm-8 col-10">
+													<div class="progress">
+												<div
+													class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+													role="progressbar" aria-valuenow="{{sub_item.level}}"
+													aria-valuemin="0"
+													aria-valuemax="100"
+													style="width:{{sub_item.level}}%"
+												></div>
+													</div>
+												</div>
 										</div>
 									{% endfor %}
 									</div>
