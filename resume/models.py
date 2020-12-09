@@ -36,18 +36,12 @@ class BasicInfo(models.Model):
             ).hexdigest()
         super().save(*args, **kwargs)
 
+    @property
+    def resume_url(self):
+        return f"{Site.objects.get_current().domain}/resume/{self.info_id}"
+
     def __str__(self):
         return f"{self.name} - {self.email} | {self.info_id}"
-
-
-class BasicInfoLink(BasicInfo):
-    class Meta:
-        proxy = True
-        verbose_name = "Resumies list"
-        verbose_name_plural = verbose_name
-
-    def __str__(self):
-        return f"{Site.objects.get_current().domain}/resume/{self.info_id}"
 
 
 class Section(models.Model):

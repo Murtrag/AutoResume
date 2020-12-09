@@ -33,6 +33,11 @@ class Image(models.Model):
     text_color = models.CharField(max_length=25, default="white")
     primary = models.BooleanField(blank=True, default=True)
 
+    @property
+    def str_name(self):
+        """ This property is created for the Admin """
+        return self.__str__()
+
     def __str__(self):
         return "image: {}".format(
             self.name or os.path.splitext(os.path.basename(self.image.name))[0]

@@ -1,57 +1,43 @@
 from django.contrib import admin
 from resume import models
 from django.shortcuts import redirect
+from django.utils.html import format_html
 
 
+@admin.register(models.BasicInfo)
 class BasicInfoAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "info_id")
+    def link_resume_url(self, obj):
+        return format_html(
+            "<a target='_blank' href='{0}'>{1}</a>",
+            redirect("resume", info_id=obj.info_id).url,
+            obj.resume_url,
+        )
+
+    list_display = ("name", "email", "info_id", "link_resume_url")
 
 
-admin.site.register(models.BasicInfo, BasicInfoAdmin)
-
-
+@admin.register(models.GitHubButton)
 class GitHubButtonAdmin(admin.ModelAdmin):
     list_display = ("user", "url")
 
 
-admin.site.register(models.GitHubButton, GitHubButtonAdmin)
-
-
+@admin.register(models.Section)
 class SectionAdmin(admin.ModelAdmin):
     list_filter = ("user",)
     list_display = ("user", "name", "section_type", "position")
 
 
-admin.site.register(models.Section, SectionAdmin)
-
-
+@admin.register(models.ListItem)
 class ListItemAdmin(admin.ModelAdmin):
     list_display = ("headline", "year")
 
 
-admin.site.register(models.ListItem, ListItemAdmin)
-
-
+@admin.register(models.GraphItem)
 class GraphItemAdmin(admin.ModelAdmin):
     list_filter = ("category",)
     list_display = ("category", "name", "level")
 
 
-admin.site.register(models.GraphItem, GraphItemAdmin)
-
-
+@admin.register(models.SectionContent)
 class SectionContentAdmin(admin.ModelAdmin):
     list_display = ("name",)
-
-
-admin.site.register(models.SectionContent, SectionContentAdmin)
-
-
-class BasicInfoLinkAdmin(admin.ModelAdmin):
-    def _changeform_view(self, request, object_id, form_url, extra_context):
-        return redirect(
-            "resume", info_id=models.BasicInfo.objects.get(pk=object_id).info_id
-        )
-
-
-admin.site.register(models.BasicInfoLink, BasicInfoLinkAdmin)
