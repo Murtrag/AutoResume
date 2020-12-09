@@ -35,6 +35,9 @@ background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 .progress:first-of-type{
 	margin-top: 0;
 }
+.modal-wider{
+	width: 62rem;
+}
 @media print {
 	.skills__container{
 		margin-top: 2rem;
