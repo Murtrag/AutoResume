@@ -36,6 +36,9 @@ background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	margin-top: 0;
 }
 @media print {
+	.skills__container{
+		margin-top: 2rem;
+	}
 	.progress {
 		position: relative;
 	}
@@ -64,7 +67,10 @@ background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	.card__header p{
 		display: block !important;
 	}
-	.skills__container{
-		margin-top: 2rem;
+	.print_show{
+		display: unset !important;
+	}
+	.print_hide{
+		display: none;
 	}
 }
