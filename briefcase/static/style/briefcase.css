@@ -8,5 +8,13 @@
 .figure .img-thumbnail{
 	max-height: 11.1rem
 }
+@media only screen and (max-width: 800px) {
+	.modal-dialog{
+		max-width:100% !important;
+	}
+}
+.modal-wider{
+	max-width: 62vw;
+}
 
 

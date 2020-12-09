@@ -8,7 +8,6 @@ $('.figure').on('click', function(){
 
 	const carouselInner = $('.carousel-inner').empty();
 	const carouselIndicators = $('.carousel-indicators').empty();
-	let modal_adjusted = false;
 	$(this).find(".modal_img").each(function(i,e){
 		const active = (i==0)? 'active':'';
 		carouselInner.prepend(`
@@ -25,12 +24,11 @@ $('.figure').on('click', function(){
 		<li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="${active}"></li>
 			`);
 
-		if(modal_adjusted === false){ 
+		if(modal.hasClass('modal-wider') == false){ 
 			if(e.width>500){
-				modal.css("max-width", "62vw")
-				modal_adjusted = true;
+				modal.addClass("modal-wider")
 			}else{
-				modal.css("max-width", "500px")
+				modal.removeClass("modal-wider")
 			}
 		}
 	})
