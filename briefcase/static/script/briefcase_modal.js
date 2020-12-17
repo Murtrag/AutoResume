@@ -33,3 +33,16 @@ $('.figure').on('click', function(){
 		}
 	})
 })
+$("#zoom").on('click', function(){
+	$('body').toggleClass('body-zoomed')
+	let span = $('span', this)
+	console.log(span.text()=="dupa")
+	if (span.text()=="in"){ 
+		span.html("out")
+		}
+	else{
+		span.html("in")
+		}
+	}
+)
+
