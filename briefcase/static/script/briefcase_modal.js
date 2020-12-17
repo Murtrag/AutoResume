@@ -34,7 +34,7 @@ $('.figure').on('click', function(){
 	})
 })
 $("#zoom").on('click', function(){
-	$('body').toggleClass('body-zoomed')
+	$('.modal-dialog').toggleClass('modal-dialog-zoomed')
 	// var viewport = document.querySelector('meta[name="viewport"]');
 	let span = $('span', this)
 	console.log(span.text()=="dupa")
