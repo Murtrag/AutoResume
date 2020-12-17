@@ -12,14 +12,8 @@
 	.modal-dialog{
 		min-width:100% !important;
 	}
-	.modal-dialog-zoomed{
-		min-width:120% !important;
-	}
 }
 .modal-wider{
 	max-width: 62vw;
 }
 
-.zoomed{
-	transform: scale(1.5);
-}

@@ -2,12 +2,14 @@ $('.figure').on('click', function(){
 	const image = $(this).find('img')
 	const modal = $(".modal .modal-dialog")
 	const inputData = $(this).find('input').data()
-	const imageWidth = inputData['image-width']
-	const imageHeight = inputData['image-height'] 
+	// const imageWidth = inputData['image-width']
+	// const imageHeight = inputData['image-height'] 
 	$('.dynamic_title').text(inputData['title']);
+	let imageToZoom = image[0].src
 
 	const carouselInner = $('.carousel-inner').empty();
 	const carouselIndicators = $('.carousel-indicators').empty();
+
 	$(this).find(".modal_img").each(function(i,e){
 		const active = (i==0)? 'active':'';
 		carouselInner.prepend(`
@@ -32,22 +34,18 @@ $('.figure').on('click', function(){
 			}
 		}
 	})
-})
-$("#zoom").on('click', function(){
-	$('.modal-dialog').toggleClass('modal-dialog-zoomed')
-	// var viewport = document.querySelector('meta[name="viewport"]');
-	let span = $('span', this)
-	console.log(span.text()=="dupa")
-	if (span.text()=="in"){ 
-		span.html("out")
-		// clientWidthZoomed = document.body.clientWidth * .5
-		// console.log(clientWidthZoomed )
-		// viewport.content = `width=${clientWidthZoomed}`;
-		}
-	else{
-		span.html("in")
-		// viewport.content = "width=device-width";
-		}
+
+	$('#ImageCarousels').bind('slide.bs.carousel', function (e) {
+	setTimeout(()=>{
+	imageToZoom = $('#ImageCarousels .active img')[0].src
+	console.log(imageToZoom);
+	}, 900)
+});
+	$("#zoom").on('click', function () {
+		$('#zoom').html()
+		window.location.href = imageToZoom;
 	}
 )
+
+})
 
