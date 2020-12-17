@@ -16,4 +16,7 @@
 .modal-wider{
 	max-width: 62vw;
 }
+.carousel-caption{
+	position: unset !important;
+}
 
