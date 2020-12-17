@@ -40,11 +40,13 @@ $("#zoom").on('click', function(){
 	console.log(span.text()=="dupa")
 	if (span.text()=="in"){ 
 		span.html("out")
-		viewport.content = "initial-scale=1.5";
+		clientWidthZoomed = document.body.clientWidth * 1.5
+		console.log(clientWidthZoomed )
+		viewport.content = `width=${clientWidthZoomed}`;
 		}
 	else{
 		span.html("in")
-		viewport.content = "initial-scale=1.0";
+		viewport.content = "width=device-width";
 		}
 	}
 )
