@@ -34,19 +34,19 @@ $('.figure').on('click', function(){
 	})
 })
 $("#zoom").on('click', function(){
-	// $('body').toggleClass('body-zoomed')
-	var viewport = document.querySelector('meta[name="viewport"]');
+	$('body').toggleClass('body-zoomed')
+	// var viewport = document.querySelector('meta[name="viewport"]');
 	let span = $('span', this)
 	console.log(span.text()=="dupa")
 	if (span.text()=="in"){ 
 		span.html("out")
-		clientWidthZoomed = document.body.clientWidth * 1.5
-		console.log(clientWidthZoomed )
-		viewport.content = `width=${clientWidthZoomed}`;
+		// clientWidthZoomed = document.body.clientWidth * .5
+		// console.log(clientWidthZoomed )
+		// viewport.content = `width=${clientWidthZoomed}`;
 		}
 	else{
 		span.html("in")
-		viewport.content = "width=device-width";
+		// viewport.content = "width=device-width";
 		}
 	}
 )
