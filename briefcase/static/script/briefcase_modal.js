@@ -34,14 +34,17 @@ $('.figure').on('click', function(){
 	})
 })
 $("#zoom").on('click', function(){
-	$('body').toggleClass('body-zoomed')
+	// $('body').toggleClass('body-zoomed')
+	var viewport = document.querySelector('meta[name="viewport"]');
 	let span = $('span', this)
 	console.log(span.text()=="dupa")
 	if (span.text()=="in"){ 
 		span.html("out")
+		viewport.content = "initial-scale=1.5";
 		}
 	else{
 		span.html("in")
+		viewport.content = "initial-scale=1.0";
 		}
 	}
 )
