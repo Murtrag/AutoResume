@@ -15,7 +15,7 @@ $('.figure').on('click', function(){
 		carouselInner.prepend(`
 			<div class="carousel-item ${active}">
 				<img class="d-block w-100 dynamic_image" src="${e.src}" alt="First slide">
-				<div class="carousel-caption d-none d-md-block">
+				<div class="carousel-caption d-md-block">
 					<h5 style="color:${$(e).data('color')}">${$(e).data('name')}</h5>
 					<p style="color:${$(e).data('color')}">${$(e).data('description')}</p>
 				</div>
