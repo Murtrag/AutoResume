@@ -23,7 +23,3 @@ class DocumentListView(ListView):
     def get_queryset(self):
         model = Type.objects.get(name=self.kwargs["type"])
         return model.items.all().order_by("position")
-
-
-def zoom_image(request, img_path):
-    return render(request, "briefcase/zoom.html", {"img_path": img_path})
