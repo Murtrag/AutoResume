@@ -1,6 +1,8 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "../"
+)
 
 SECRET_KEY = os.environ["RESUME_SECRET_KEY"]
 ALLOWED_HOSTS = ["murtrag.pythonanywhere.com"]
