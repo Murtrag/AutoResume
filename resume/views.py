@@ -17,7 +17,7 @@ def display_resume(request, info_id):
             .prefetch_related(
                 Prefetch(
                     "content__list_item",
-                    queryset=models.ListItem.objects.all().order_by("year"),
+                    queryset=models.ListItem.objects.all().order_by("-year"),
                 )
             ),
             "section_types": {key: value for value, key in models.section_types},
