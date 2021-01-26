@@ -69,6 +69,7 @@ class ListItem(models.Model):
         help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode"
     )
     year = models.CharField(max_length=25, blank=True)
+    position = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.headline} | {self.year}"
