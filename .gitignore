@@ -7,4 +7,5 @@ media/galery/*
 /* download/* */
 core/settings.py
 db.sqlite3
+htmlcov/*
 
