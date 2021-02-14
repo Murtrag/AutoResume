@@ -1,6 +1,7 @@
 body{
 	background-color: silver;
 	font-family: 'Newsreader', serif;
+	font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 800px) {
