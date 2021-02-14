@@ -44,11 +44,11 @@
 							<div class="row indent">
 							{% for item in section.content.list_item.all%}
 									
-									<h3 class ="col-sm-12 col-md-12 col-xl-12">{{item.headline}}</h3>
+									<h3 class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
+									<p class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.year}}</p>
 									<div class = "col-sm-12 col-md-8 col-xl-8" >
 										<p>{% bbcode item.description %}</p>
 									</div>
-									<p class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.year}}</p>
 							{% endfor %}
 							</div>
 						{% endif %}
