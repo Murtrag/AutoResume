@@ -56,15 +56,16 @@
 								{% for item in column%}
 									<div class="col-sm-12">
 									<span class="legend">{{item.0}}</span>
-									{% for sub_item in item.1%}
 									<div class="row">
+									{% for sub_item in item.1%}
+
 											<div style="display:none;" class="col-sm-12 print_show">
 												<span>
 												{{sub_item.name}}
 											</div>
-											<div class="col-sm-12">
 												{% if sub_item.has_level %}
-												<div class="progress graph__item">
+											<div class="col-sm-12">
+												<div class="progress graph__item ">
 													<div
 														class="progress-bar progress-bar-striped progress-bar-animated bg-dark" 
 														role="progressbar" aria-valuenow="{{sub_item.level}}" 
@@ -77,11 +78,13 @@
 													</div>
 												</div>
 												{% else %}
+													<div class="col-sm-4">
 													<div class="graph__item">{{sub_item.name}}</div>
 												{% endif %}
 											</div>
-									</div>
+
 									{% endfor %}
+									</div>
 									</div>
 								{% endfor %}
 							</div>
