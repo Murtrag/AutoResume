@@ -71,6 +71,9 @@ class ListItem(models.Model):
     )
     year = models.CharField(max_length=25, blank=True)
     position = models.IntegerField(default=0)
+    weight = models.IntegerField(
+        validators=[MinValueValidator(100), MaxValueValidator(900)], default=400
+    )
 
     def __str__(self):
         return f"{self.headline} | {self.year}"
@@ -84,6 +87,9 @@ class GraphItem(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(100)], default=0
     )
     position = models.IntegerField(default=0)
+    weight = models.IntegerField(
+        validators=[MinValueValidator(100), MaxValueValidator(900)], default=400
+    )
 
     def __str__(self):
         return f"{self.category} | {self.name} - {self.level}"
