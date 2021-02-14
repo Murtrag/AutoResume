@@ -35,7 +35,7 @@ class ListItemAdmin(admin.ModelAdmin):
 @admin.register(models.GraphItem)
 class GraphItemAdmin(admin.ModelAdmin):
     list_filter = ("category",)
-    list_display = ("category", "name", "level")
+    list_display = ("category", "name", "level", "position")
 
 
 @admin.register(models.SectionContent)
