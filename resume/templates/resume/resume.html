@@ -62,19 +62,22 @@
 												{{sub_item.name}}
 											</div>
 											<div class="col-sm-12">
+												{% if sub_item.has_level %}
 												<div class="progress">
 													<div
-														class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
-														role="progressbar" aria-valuenow="{{sub_item.level}}"
-														aria-valuemin="0"
-														aria-valuemax="100"
-														style="width:{{sub_item.level}}%"
-													>
-													<span class="print_hide">
-													{{sub_item.name}}: {{sub_item.level}}%
-													</span>
+														class="progress-bar progress-bar-striped progress-bar-animated bg-dark" 
+														role="progressbar" aria-valuenow="{{sub_item.level}}" 
+														aria-valuemin="0" 
+														aria-valuemax="100" 
+														style="width:{{sub_item.level}}%" 
+													<span class="print_hide"> 
+													{{sub_item.name}}: {{sub_item.level}}% 
+													</span> 
 													</div>
 												</div>
+												{% else %}
+													{{sub_item.name}}
+												{% endif %}
 											</div>
 									</div>
 									{% endfor %}

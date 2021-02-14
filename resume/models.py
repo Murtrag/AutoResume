@@ -78,6 +78,7 @@ class ListItem(models.Model):
 class GraphItem(models.Model):
     category = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
+    has_level = models.BooleanField(default=False)
     level = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(100)]
     )
