@@ -80,7 +80,7 @@ class GraphItem(models.Model):
     name = models.CharField(max_length=50)
     has_level = models.BooleanField(default=False)
     level = models.IntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(100)]
+        validators=[MinValueValidator(0), MaxValueValidator(100)], default=0
     )
 
     def __str__(self):
