@@ -29,11 +29,14 @@ background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	position: relative;
 	bottom:1.4vh;
 }
-.graph__item{
+.graph__bar{
 	margin: 3%;
 }
-.graph__item:first-of-type{
+.graph__bar:first-of-type{
 	margin-top: 0;
+}
+.skills__container .row{
+	margin-bottom: 0.9rem;
 }
 .modal-wider{
 	width: 62rem;
