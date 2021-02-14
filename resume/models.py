@@ -125,4 +125,4 @@ class UrlButton(models.Model):
     url = models.CharField(max_length=60)
 
     def __str__(self):
-        return f"{self.user.name} | {self.url}"
+        return f"{self.user.name} - f{self.name} | {self.url}"

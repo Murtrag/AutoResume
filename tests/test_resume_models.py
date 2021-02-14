@@ -74,9 +74,6 @@ class TestSectionContent:
 
 
 def test_github_button():
-    gh_button = mixer.blend("resume.GitHubButton")
-    components = (
-        gh_button.user.name,
-        gh_button.url,
-    )
-    assert all(c in str(gh_button) for c in components)
+    url_button = mixer.blend("resume.UrlButton")
+    components = (url_button.user.name, url_button.url, url_button.name)
+    assert all(c in str(url_button) for c in components)
