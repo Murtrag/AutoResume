@@ -29,7 +29,7 @@ class SectionAdmin(admin.ModelAdmin):
 
 @admin.register(models.ListItem)
 class ListItemAdmin(admin.ModelAdmin):
-    list_display = ("headline", "year")
+    list_display = ("headline", "year", "position")
 
 
 @admin.register(models.GraphItem)
