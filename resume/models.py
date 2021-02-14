@@ -83,6 +83,7 @@ class GraphItem(models.Model):
     level = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(100)], default=0
     )
+    position = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.category} | {self.name} - {self.level}"
@@ -107,7 +108,7 @@ class SectionContent(models.Model):
                 {
                     key: list(value)
                     for key, value in groupby(
-                        self.graph_item.all().order_by("category"),
+                        self.graph_item.all().order_by("position", "category"),
                         key=lambda x: x.category,
                     )
                 }.items()
