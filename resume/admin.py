@@ -16,9 +16,9 @@ class BasicInfoAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "info_id", "link_resume_url")
 
 
-@admin.register(models.GitHubButton)
-class GitHubButtonAdmin(admin.ModelAdmin):
-    list_display = ("user", "url")
+@admin.register(models.UrlButton)
+class UrlButtonAdmin(admin.ModelAdmin):
+    list_display = ("name", "user", "url")
 
 
 @admin.register(models.Section)

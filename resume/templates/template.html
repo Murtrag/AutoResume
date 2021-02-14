@@ -22,8 +22,10 @@
 				<a href="{% url 'briefcase' info_id=basic_info.info_id type=button.name %}" class="btn btn-outline-dark">{{button.name}}</a>
 				<p style="display: none;"><strong>{{button.name}}: </strong>{{ request.META.HTTP_HOST  }}{% url 'briefcase' info_id=basic_info.info_id type=button.name %}</p>
 				{% endfor %}
-				<a href="{{github_url}}" class="btn btn-outline-dark">GitHub</a>
-				<p style="display: none;"><strong>GitHub: </strong>{{github_url}}</p>
+				{% for button in url_buttons %}
+					<a href="{{button.url}}" class="btn btn-outline-dark">{{button.name}}</a>
+					<p style="display: none;"><strong>GitHub: </strong>{{github_url.name}}</p>
+				{% endfor %}
 
 				<header class="text-center">
 					{% block title %} {% endblock %}

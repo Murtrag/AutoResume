@@ -1,15 +1,15 @@
-from resume.models import GitHubButton
+from resume.models import UrlButton
 from briefcase.models import Type
 
 
 def global_vars(request):
     context = dict()
     info_id = request.resolver_match.kwargs.get("info_id")
-    github_obj = GitHubButton.objects.filter(user__info_id=info_id).first()
-    if github_obj is not None:
+    url_buttons = UrlButton.objects.filter(user__info_id=info_id)
+    if url_buttons is not None:
         context.update(
             {
-                "github_url": github_obj.url,
+                "url_buttons": url_buttons,
             }
         )
     context.update(

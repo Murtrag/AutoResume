@@ -119,7 +119,8 @@ class SectionContent(models.Model):
         return f"{self.name}"
 
 
-class GitHubButton(models.Model):
+class UrlButton(models.Model):
+    name = models.CharField(max_length=20)
     user = models.ForeignKey(BasicInfo, on_delete=models.CASCADE)
     url = models.CharField(max_length=60)
 
