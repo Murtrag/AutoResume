@@ -22,6 +22,9 @@
 		<i class="fa fa-circle fa-3" aria-hidden="true"></i> 
 		<a href="mailto:{{basic_info.email}}">{{basic_info.email}}</a></p>
 	</div>
+	<div>
+			{% bbcode basic_info.extra_header %}	
+	</div>
 {% endblock %}
 
 {%block content%}

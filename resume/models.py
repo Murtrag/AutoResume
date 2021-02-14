@@ -25,6 +25,7 @@ class BasicInfo(models.Model):
     address = models.CharField(max_length=45)
     phone_number = models.CharField(max_length=15)
     email = models.CharField(max_length=45)
+    extra_header = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if self.info_id is None:
