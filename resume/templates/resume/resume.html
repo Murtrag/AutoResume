@@ -59,11 +59,12 @@
 									{% for sub_item in item.1%}
 									<div class="row">
 											<div style="display:none;" class="col-sm-12 print_show">
+												<span>
 												{{sub_item.name}}
 											</div>
 											<div class="col-sm-12">
 												{% if sub_item.has_level %}
-												<div class="progress">
+												<div class="progress graph__item">
 													<div
 														class="progress-bar progress-bar-striped progress-bar-animated bg-dark" 
 														role="progressbar" aria-valuenow="{{sub_item.level}}" 
@@ -76,7 +77,7 @@
 													</div>
 												</div>
 												{% else %}
-													{{sub_item.name}}
+													<div class="graph__item">{{sub_item.name}}</div>
 												{% endif %}
 											</div>
 									</div>

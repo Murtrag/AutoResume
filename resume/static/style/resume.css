@@ -29,10 +29,10 @@ background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	position: relative;
 	bottom:1.4vh;
 }
-.progress{
+.graph__item{
 	margin: 3%;
 }
-.progress:first-of-type{
+.graph__item:first-of-type{
 	margin-top: 0;
 }
 .modal-wider{
