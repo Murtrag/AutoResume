@@ -67,7 +67,8 @@ class Section(models.Model):
 class ListItem(models.Model):
     headline = models.CharField(max_length=90)
     description = models.TextField(
-        help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode"
+        help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",
+        blank=True,
     )
     year = models.CharField(max_length=25, blank=True)
     position = models.IntegerField(default=0)
