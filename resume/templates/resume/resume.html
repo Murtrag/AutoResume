@@ -13,22 +13,6 @@
   <link rel="stylesheet" href="{% static 'style/main.css' %}">
 {% endblock %}
 
-{% block buttons %}
-	<a href="{% url 'resume' info_id=basic_info.info_id %}" class="btn btn-outline-dark">Resumé</a>
-	<p style="display: none;"><strong>Resumé: </strong>{{ request.META.HTTP_HOST  }}{% url 'resume' info_id=basic_info.info_id %}</p>
-
-	{% for button in briefcase%}
-	<a href="{% url 'briefcase' info_id=basic_info.info_id type=button.name %}" class="btn btn-outline-dark">{{button.name}}</a>
-	<p style="display: none;"><strong>{{button.name}}: </strong>{{ request.META.HTTP_HOST  }}{% url 'briefcase' info_id=basic_info.info_id type=button.name %}</p>
-	{% endfor %}
-{% endblock%}
-
-{% block extra_buttons %}
-	{% for button in url_buttons %}
-		<a href="{{button.url}}" target="_blank" class="btn btn-outline-dark">{{button.name}}</a>
-		<p style="display: none;"><strong>GitHub: </strong>{{github_url.name}}</p>
-	{% endfor %}
-{% endblock %}
 {% block title %}
 	<h1 class="text-center mt-4 mb-0">{{basic_info.name}}</h1>
 	<div>
