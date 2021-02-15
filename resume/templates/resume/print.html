@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
   <link rel="stylesheet" href="{% static 'style/resume.css' %}">
   <link rel="stylesheet" href="{% static 'style/main.css' %}">
 {% endblock %}
@@ -29,6 +30,7 @@
 		<p style="display: none;"><strong>GitHub: </strong>{{github_url.name}}</p>
 	{% endfor %}
 {% endblock %}
+
 {% block title %}
 	<h1 class="text-center mt-4 mb-0">{{basic_info.name}}</h1>
 	<div>
@@ -44,6 +46,14 @@
 {% endblock %}
 
 {%block content%}
+				<style>
+				
+					.container{
+						max-width:100% !important;
+						padding-right: 1px;
+						padding-left: 1px;
+					}
+				</style>
 				{% for section in sections%}
 					<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
 						<h2><i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h2>
