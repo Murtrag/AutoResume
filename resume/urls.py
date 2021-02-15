@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     re_path(
-        "^(?P<info_id>\w+)/print/$",
+        "(?P<info_id>\w+)/print/$",
         views.DisplayPrintResume.as_view(),
         name="print_resume",
     ),
