@@ -95,6 +95,26 @@ class GraphItem(models.Model):
     def __str__(self):
         return f"{self.category} | {self.name} - {self.level}"
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        different_categories = GraphItem.objects.filter(position=self.position).exclude(
+            category=self.category
+        )
+
+        # set all same categories graph items to the same possiton
+        GraphItem.objects.filter(category=self.category).update(position=self.position)
+
+        # set all different categories graph items with same position to a different one
+        reserved_postions = GraphItem.objects.values_list(
+            "position", flat=True
+        ).distinct()
+        reserved_max = max(reserved_postions)
+        unreserved_position = min(
+            [i for i in range(0, reserved_max) if i not in reserved_postions]
+            or [reserved_max + 1]
+        )
+        different_categories.update(position=unreserved_position)
+
 
 class SectionContent(models.Model):
     name = models.CharField(
