@@ -17,8 +17,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "precise_bbcode",
-    "briefcase",
     "resume",
+    "briefcase",
 ]
 SITE_ID = 1
 
