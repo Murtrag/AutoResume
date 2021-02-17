@@ -1,6 +1,8 @@
 import pytest
+import string
 
 from django.urls import reverse
+from resume.models import GraphItem
 from mixer.backend.django import mixer
 
 
@@ -42,10 +44,44 @@ def test_list_item():
     assert all(c in str(list_item) for c in components)
 
 
-def test_graph_item():
-    graph_item = mixer.blend("resume.GraphItem")
-    components = (graph_item.category, graph_item.name, str(graph_item.level))
-    assert all(c in str(graph_item) for c in components)
+class TestGraphItem:
+    def setup_method(self):
+        self.alfabeth = sorted(list(string.ascii_lowercase))
+        self.graph_items = list()
+        for i in sorted(2 * list(range(0, 5))):
+            self.graph_items.extend(
+                2
+                * [
+                    mixer.blend(
+                        "resume.GraphItem", category=self.alfabeth[i], position=i
+                    )
+                ]
+            )
+
+    def test_str(self):
+        components = (
+            self.graph_items[0].category,
+            self.graph_items[0].name,
+            str(self.graph_items[0].level),
+        )
+        assert all(c in str(self.graph_items[0]) for c in components)
+
+    def test_save(self):
+        group_a = GraphItem.objects.filter(position=0)
+        assert all(item.position == 0 for item in group_a)
+
+        for i in sorted(2 * list(range(0, 5))):
+            mixer.blend(
+                "resume.GraphItem", category=self.alfabeth[-(i + 1)], position=i
+            )
+            assert all(
+                item.category == self.alfabeth[-(i + 1)]
+                for item in GraphItem.objects.filter(position=i)
+            )
+            assert all(
+                item.position != i
+                for item in GraphItem.objects.filter(category=self.alfabeth[i])
+            )
 
 
 class TestSectionContent:
