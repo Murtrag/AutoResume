@@ -1,13 +1,15 @@
-from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.contrib.sites.models import Site
-
-from itertools import groupby
-from numpy import array_split
-from hashlib import md5
-from string import ascii_letters, digits
-from random import choice
 from re import sub
+from hashlib import md5
+from random import choice
+from numpy import array_split
+from itertools import groupby
+from string import ascii_letters, digits
+
+from django.db import models
+from core.models import OrderedModel
+from django.contrib.sites.models import Site
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 # md5(b'test').hexdigest()
 
@@ -45,7 +47,7 @@ class BasicInfo(models.Model):
         return f"{self.name} - {self.email} | {self.info_id}"
 
 
-class Section(models.Model):
+class Section(OrderedModel):
     user = models.ForeignKey(BasicInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     icon = models.CharField(max_length=20)
@@ -64,7 +66,7 @@ class Section(models.Model):
         return f"{self.user} | {self.name}"
 
 
-class ListItem(models.Model):
+class ListItem(OrderedModel):
     headline = models.CharField(max_length=90)
     description = models.TextField(
         help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",

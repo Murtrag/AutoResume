@@ -1,6 +1,7 @@
 import os
 from django.db import models
 from resume.models import BasicInfo
+from core.models import OrderedModel
 
 
 class Type(models.Model):
@@ -12,7 +13,7 @@ class Type(models.Model):
         return self.name
 
 
-class Item(models.Model):
+class Item(OrderedModel):
     name = models.CharField(max_length=35)
     # description = models.TextField(blank=True)
     images = models.ManyToManyField("Image")
