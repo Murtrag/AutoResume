@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "precise_bbcode",
+    "core",
     "resume",
     "briefcase",
 ]
