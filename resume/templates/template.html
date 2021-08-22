@@ -43,8 +43,8 @@
 					</div>
 					<div class="col-sm-4 text-right">
 						<!--<i class="fa fa-flag" aria-hidden="true"></i> {{section.name}} -->
+						{% if languages.count > 1 %}
 						<select id="language_select">
-							{% if languages.count > 1 %}
 								{% for language in languages %}
 									{% if language.language.name == basic_info.language.name %}
 										<option value="{{language.resume_url}}" selected>{{language.language.image}}&emsp;{{language.language.name}}</option>
@@ -52,8 +52,8 @@
 										<option value="{{language.resume_url}}">{{language.language.image}}&emsp;{{language.language.name}}</option>
 									{% endif %}
 								{% endfor %}
-							{% endif %}
 						</select>
+						{% endif %}
 					</div>
 				</div>
 
