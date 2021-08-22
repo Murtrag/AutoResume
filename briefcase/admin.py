@@ -5,7 +5,9 @@ from .models import Type, Item, Image
 
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ("user", "name")
+    list_display = ("name","users")
+    def users(self, obj):
+        return ", ".join(u.name for u in obj.user.all())
 
 
 @admin.register(Item)
