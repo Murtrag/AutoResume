@@ -13,7 +13,7 @@ class BasicInfoAdmin(admin.ModelAdmin):
             obj.resume_url,
         )
 
-    list_display = ("name", "email", "info_id", "link_resume_url")
+    list_display = ("name", "email", "info_id", "link_resume_url", "language")
 
 
 @admin.register(models.UrlButton)
@@ -41,3 +41,7 @@ class GraphItemAdmin(admin.ModelAdmin):
 @admin.register(models.SectionContent)
 class SectionContentAdmin(admin.ModelAdmin):
     list_display = ("name",)
+
+@admin.register(models.Language)
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ("name", "image")

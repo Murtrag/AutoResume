@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 
 <html lang="en">
@@ -9,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
   {% block header%}
   {% endblock %}
+
 
 </head>
 
@@ -42,8 +44,9 @@
 					<div class="col-sm-4 text-right">
 						<i class="fa fa-flag" aria-hidden="true"></i> {{section.name}}
 						<select>
-							<option>1</option>
-							<option>2</option>
+							{% for language in languages %}
+								<option value="NL">{{language.language.image}}&emsp;{{language.language.name}}</option>
+							{% endfor %}
 						</select>
 					</div>
 				</div>

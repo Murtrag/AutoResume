@@ -21,6 +21,13 @@ section_types = [
 ]
 
 
+class Language(models.Model):
+    name = models.CharField(max_length=25)
+    image = models.CharField(max_length=4, help_text="Use emoji icons https://emojipedia.org/")
+
+    def __str__(self):
+        return self.name
+
 class BasicInfo(models.Model):
     info_id = models.CharField(max_length=32, blank=True, null=True, editable=False)
     name = models.CharField(max_length=25)
@@ -28,6 +35,7 @@ class BasicInfo(models.Model):
     phone_number = models.CharField(max_length=15)
     email = models.CharField(max_length=45)
     extra_header = models.TextField(blank=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
 
     def save(self, *args, **kwargs):
         if self.info_id is None:
