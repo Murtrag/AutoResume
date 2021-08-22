@@ -5,7 +5,7 @@ from core.models import OrderedModel
 
 
 class Type(models.Model):
-    user = models.ForeignKey(BasicInfo, on_delete=models.CASCADE)
+    user = models.ManyToManyField(BasicInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     items = models.ManyToManyField("Item")
 

@@ -7,10 +7,6 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        "OPTIONS": {
-            'charset' : 'utf8mb4',
-            'use_unicode': True,
-        }
     }
 }
 DEBUG = True
