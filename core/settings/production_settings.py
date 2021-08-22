@@ -61,6 +61,10 @@ DATABASES = {
         "USER": "Murtrag",
         "PASSWORD": os.environ.get("RESUME_DATABASE_PASSWORD"),
         "HOST": "Murtrag.mysql.pythonanywhere-services.com",
+        "OPTIONS": {
+            'charset' : 'utf8mb4',
+            'use_unicode': True,
+        }
     }
 }
 
