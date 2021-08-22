@@ -23,7 +23,7 @@ section_types = [
 
 class Language(models.Model):
     name = models.CharField(max_length=25)
-    image = models.CharField(max_length=4, help_text="Use emoji icons https://emojipedia.org/")
+    image = models.CharField(max_length=8, help_text="Use emoji icons https://emojipedia.org/")
 
     def __str__(self):
         return self.name
