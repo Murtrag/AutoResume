@@ -42,10 +42,10 @@
 					{% endblock %}
 					</div>
 					<div class="col-sm-4 text-right">
-						<i class="fa fa-flag" aria-hidden="true"></i> {{section.name}}
+						<!--<i class="fa fa-flag" aria-hidden="true"></i> {{section.name}} -->
 						<select>
 							{% for language in languages %}
-								<option value="NL">{{language.language.image}}&emsp;{{language.language.name}}</option>
+								<option value="{{language.resume_url}}">{{language.language.image}}&emsp;{{language.language.name}}</option>
 							{% endfor %}
 						</select>
 					</div>
