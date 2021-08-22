@@ -44,12 +44,14 @@
 					<div class="col-sm-4 text-right">
 						<!--<i class="fa fa-flag" aria-hidden="true"></i> {{section.name}} -->
 						<select id="language_select">
-							{% for language in languages %}
-								{% if language.language.name == basic_info.language.name %}
-									<option value="{{language.resume_url}}" selected>{{language.language.image}}&emsp;{{language.language.name}}</option>
-								{% else %}
-									<option value="{{language.resume_url}}">{{language.language.image}}&emsp;{{language.language.name}}</option>
-								{% endif %}
+							{% if languages.count > 1 %}
+								{% for language in languages %}
+									{% if language.language.name == basic_info.language.name %}
+										<option value="{{language.resume_url}}" selected>{{language.language.image}}&emsp;{{language.language.name}}</option>
+									{% else %}
+										<option value="{{language.resume_url}}">{{language.language.image}}&emsp;{{language.language.name}}</option>
+									{% endif %}
+								{% endfor %}
 							{% endfor %}
 						</select>
 					</div>
