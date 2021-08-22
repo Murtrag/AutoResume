@@ -18,7 +18,10 @@ class BasicInfoAdmin(admin.ModelAdmin):
 
 @admin.register(models.UrlButton)
 class UrlButtonAdmin(admin.ModelAdmin):
-    list_display = ("name", "user", "url")
+    list_display = ("name", "users", "url")
+    def users(self, obj):
+        return ", ".join(u.name for u in obj.user.all())
+    
 
 
 @admin.register(models.Section)
@@ -45,3 +48,4 @@ class SectionContentAdmin(admin.ModelAdmin):
 @admin.register(models.Language)
 class LanguageAdmin(admin.ModelAdmin):
     list_display = ("name", "image")
+

@@ -159,7 +159,7 @@ class SectionContent(models.Model):
 
 class UrlButton(models.Model):
     name = models.CharField(max_length=20)
-    user = models.ForeignKey(BasicInfo, on_delete=models.CASCADE)
+    user = models.ManyToManyField(BasicInfo)
     url = models.CharField(max_length=60)
 
     def __str__(self):
