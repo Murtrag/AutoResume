@@ -66,6 +66,9 @@ class Section(OrderedModel):
         default=0,
     )
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs, user=self.user)
+
     @property
     def section_class_name(self):
         return sub(r"\W", "", sub(r"\s", "_", self.name)).lower()
