@@ -60,7 +60,7 @@ class Section(OrderedModel):
     name = models.CharField(max_length=50)
     icon = models.CharField(max_length=20)
     section_type = models.IntegerField(choices=section_types)
-    content = models.OneToOneField("SectionContent", on_delete=models.CASCADE)
+    content = models.ForeignKey("SectionContent", on_delete=models.CASCADE)
     position = models.IntegerField(
         help_text="Determines position on resume, section with the smallest number will be on  the top",
         default=0,
