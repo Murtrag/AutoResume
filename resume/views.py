@@ -36,4 +36,8 @@ class DisplayPrintResume(DisplayResume):
     template = "resume/print.html"
 
 def new_layout(request):
-    return render(request, 'hacker_template/template.html', {})
+    basic_info = models.BasicInfo.objects.first()
+    return render(request, 'hacker_template/template.html', {
+        'basic_info': basic_info,
+        "sections": models.Section.objects.all().order_by('-position')
+    })

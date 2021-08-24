@@ -29,26 +29,68 @@
 			<div class="card-body card__header">
 
 
-				<div class="row">
-					<div class="col-sm-4">
+<div class="row cv_card">
+					<!-- left panel -->
+					<div class="col-sm-4 ">
+						<div class="sections text-center cv_card__side_panel">
+							{% for section in sections %}
+								<hr class="hr_style"/>
+								<h3>{{section.content.name}}</h3>
+								<hr class="hr_style"/>
+							{% endfor%}
+						</div>
 					</div>
 
+					<!-- center panel -->
 					<div class="col-sm-4 text-center">
-						<div class="part">
-							<div class="octo">
-							  <div class="octo1">
-								<div>
-									<img src="https://imgur.com/UwCTcHk.png" alt="" width="320" height="316" />
-								</div>
-							  </div>
-							</div>
 							<div class="center_field">
-								 <h2>John Doe</h2>
+											<div class="part">
+												<div class="octo">
+												  <div class="octo1">
+													<div>
+														<img src="https://imgur.com/UwCTcHk.png" alt="" width="320" height="316" />
+													</div>
+												  </div>
+												</div>
+								 <div class="center_field__name">
+									 <h1>{{basic_info.name}}</h2>
+									 <h2 class="font_black">Backend Developer</h2>
+								 </div>
+								 <div class="center_field__expectations">
+								 	{{ sections.0.content.text }}
+								 </div>
+
+								<hr class="hr_style"/>
+
+								 <div class="center_field__basic cv_card__side_panel">
+								 	<h3>ADDRESS:</h3>
+								 	<h4 class="font_black">{{basic_info.address}}</h3>
+								 	<h3>PHONE:</h3>
+								 	<h4 class="font_black">{{basic_info.phone_number}}</h3>
+								 	<h3>EMAIL:</h3>
+								 	<h4 class="font_black">{{basic_info.email}}</h3>
+								 	<h3>WEBSITE:</h3>
+								 	<h4 class="font_black">{{basic_info.website}}</h3>
+								 </div>
+
+								<hr class="hr_style"/>
+
+									{% for button in buttons %}
+										
+									{% endfor %}
 							</div>
 						</div>
 					</div>
 
+					<!-- right panel -->
 					<div class="col-sm-4">
+						<div class="sections text-center cv_card__side_panel">
+							{% for section in sections %}
+								<hr class="hr_style"/>
+								<h3>{{section.content.name}}</h3>
+								<hr class="hr_style"/>
+							{% endfor%}
+						</div>
 					</div>
 			</div>
 		</div>
