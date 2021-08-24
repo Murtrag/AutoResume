@@ -15,9 +15,8 @@ body{
 	color: #59fe26;
 }
 .card-body{
-	min-height: 1000px;
-	//background-image: url(http://imgur.com/fkSZqFR.png);
-	background-image: url(https://i.ibb.co/yy85Q6B/background.png);
+	 min-height: 1500px; 
+	background-image: url('/static/style/hacker/background.png');
 	background-repeat: no-repeat;
 }
 
@@ -69,7 +68,38 @@ body{
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
-	min-height: 860px;
+	min-height: 1140; 
 	width: 120%;
 	border-radius: 30% 30% 0 0;
 }
+
+.center_field__name{
+	margin-top: 5%;
+}
+
+
+/* lower page to match with bg image */
+.cv_card{
+	margin-top:18%;
+}
+
+.font_black{
+	color: black;
+}
+
+.hr_style{
+	margin-top: 2rem;
+	border-top: 10px dotted #59fe26;
+	margin-bottom: 2rem;
+}
+
+.part{
+	margin-top: -35%;
+}
+
+.cv_card__side_panel{
+	position: relative !important;
+	top: 85%
+}
+
+
