@@ -4,6 +4,7 @@ from . import views
 
 
 urlpatterns = [
+    re_path("new-layout/", views.new_layout, name="new_resume"),
     re_path(
         "(?P<info_id>\w+)/print/$",
         views.DisplayPrintResume.as_view(),

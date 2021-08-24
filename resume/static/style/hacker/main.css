@@ -1,0 +1,75 @@
+body{
+	background-color: silver;
+	font-family: 'Newsreader', serif;
+	font-size: 1.1rem;
+}
+@media only screen and (max-width: 800px) {
+	.container{
+		max-width:100% !important;
+		padding-right: 1px;
+		padding-left: 1px;
+	}
+}
+.card{
+	background: black !important;
+	color: #59fe26;
+}
+.card-body{
+	min-height: 1000px;
+	//background-image: url(http://imgur.com/fkSZqFR.png);
+	background-image: url(https://i.ibb.co/yy85Q6B/background.png);
+	background-repeat: no-repeat;
+}
+
+.octa {
+	height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	width: 100vh;
+}
+.octa:after {
+	background-image: url(https://imgur.com/voKPrMK.png);
+	background-position: center center;
+	background-size: auto 100vh;
+	bottom: 0;
+	content: '';
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.octo, .octo div {
+	margin: 0 auto;
+	transform-origin: 50% 50%;
+	overflow: hidden;
+	width: 300px;
+	height: 300px;
+	border-radius: 40%;
+}
+.octo, .octo div {
+	width: 270px;
+	height: 270px;
+}
+.octo {
+	transform: rotate(45deg);
+	position: relative;
+	z-index: 2;
+}
+.octo1 {
+	transform: rotate(-45deg);
+}
+.center_field{
+	position: absolute;
+	top: 45%;
+	left: -10%;
+	z-index: 1;
+	background: #2b5329;
+	min-height: 860px;
+	width: 120%;
+	border-radius: 30% 30% 0 0;
+}

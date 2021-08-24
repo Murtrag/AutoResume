@@ -34,3 +34,6 @@ class DisplayResume(View):
 
 class DisplayPrintResume(DisplayResume):
     template = "resume/print.html"
+
+def new_layout(request):
+    return render(request, 'hacker_template/template.html', {})
