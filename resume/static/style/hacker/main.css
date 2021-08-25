@@ -17,8 +17,11 @@ body{
 .card-body{
 	 min-height: 1500px; 
 	background-image: url('/static/style/hacker/background.png');
+	background-position-x: 13px;
 	background-repeat: no-repeat;
+	background-size: 100%;
 }
+
 
 .octa {
 	height: 100vh;
@@ -48,7 +51,7 @@ body{
 	overflow: hidden;
 	width: 300px;
 	height: 300px;
-	border-radius: 40%;
+	/* border-radius: 40%; */
 }
 .octo, .octo div {
 	width: 270px;
@@ -64,17 +67,17 @@ body{
 }
 .center_field{
 	position: absolute;
-	top: 45%;
+	top: 64%;
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
-	min-height: 1140; 
+	min-height: 1078px; 
 	width: 120%;
-	border-radius: 30% 30% 0 0;
+	/* border-radius: 30% 30% 0 0; */
 }
 
 .center_field__name{
-	margin-top: 5%;
+	margin-top: 10%;
 }
 
 
@@ -94,12 +97,46 @@ body{
 }
 
 .part{
-	margin-top: -35%;
+	margin-top: -53%;
 }
 
 .cv_card__side_panel{
 	position: relative !important;
 	top: 85%
+}
+
+
+
+
+.card .card_corner {
+position: absolute;
+top: 45%;
+right: -10%;
+width: 1.7em;
+height: 2em;
+/* background-color: #2b5329; */
+z-index: 2;
+}
+.card_corner_left {
+	left: -10%;
+	background-color: black;
+}
+.card_corner_left .card_corner-triangle{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 2em 2em 0 0;
+	border-color: transparent #2b5329 transparent transparent;
+}
+
+.card_corner_right .card_corner-triangle {
+position: absolute;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 2em 2em 0;
+border-color: transparent black transparent transparent;
 }
 
 

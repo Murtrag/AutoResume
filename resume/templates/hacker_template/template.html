@@ -43,15 +43,68 @@
 
 					<!-- center panel -->
 					<div class="col-sm-4 text-center">
+
+							<style>
+							.step_wrapper{
+								height: 130px;
+								display: flex;
+								margin-top: -33%;
+							}
+							.step{
+								background-color: #2b5329;
+								width: 50%;
+							}
+							.center_field_step_left{
+								background: linear-gradient(to bottom right, transparent 15%, #2b5329 5%);
+							}
+							.center_field_step_right{
+								background: linear-gradient(to bottom left, transparent 15%, #2b5329 5%);
+							}
+							</style>
+
 							<div class="center_field">
 											<div class="part">
 												<div class="octo">
 												  <div class="octo1">
-													<div>
+													<div style="overflow: none;">
 														<img src="https://imgur.com/UwCTcHk.png" alt="" width="320" height="316" />
+														<style>
+															.octo-corner{
+																position: absolute;
+																
+															}
+															.octo-corner-vert{
+																position: absolute;
+																height: 110px;
+																width: 280px;
+																top: -14.2%;
+																left: 18%;
+																border: solid 8px;
+																z-index: 1;
+															}
+															.octo-corner-hor{
+																position: absolute;
+																height: 280px;
+																width: 110px;
+																top: -22.1%;
+																left: 38%;
+																border: solid 8px;
+																z-index: 1;
+															}
+														</style>
 													</div>
 												  </div>
 												</div>
+														<div class="octo-corner octo-corner-vert">a</div>
+														<div class="octo-corner octo-corner-hor"></div>
+														<div class="octo-corner octo-corner-sl-front"></div>
+														<div class="octo-corner octo-corner-sl-back"></div>
+
+								<div class="step_wrapper">
+									<div class="step center_field_step_left"></div>
+									<div class="step center_field_step_right"></div>
+								</div>
+
 								 <div class="center_field__name">
 									 <h1>{{basic_info.name}}</h2>
 									 <h2 class="font_black">Backend Developer</h2>
