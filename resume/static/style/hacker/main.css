@@ -17,7 +17,6 @@ body{
 .card-body{
 	 min-height: 1500px; 
 	background-image: url('/static/style/hacker/background.png');
-	background-position-x: 13px;
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
@@ -71,13 +70,16 @@ body{
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
-	min-height: 1078px; 
+	min-height: 1068px; 
 	width: 120%;
 	/* border-radius: 30% 30% 0 0; */
 }
 
 .center_field__name{
 	margin-top: 10%;
+}
+.center_field__expectations{
+	padding: 1rem;
 }
 
 
@@ -88,6 +90,11 @@ body{
 
 .font_black{
 	color: black;
+}
+
+.font_title{
+	font-style: italic;
+	font-size: 1.4rem;
 }
 
 .hr_style{
@@ -144,23 +151,25 @@ body{
 	position: absolute;
 	border-radius: 2%;
 }
-.octo-corner-vert{
-	position: absolute;
-	height: 110px;
-	width: 280px;
-	top: -14.2%;
-	left: 18%;
-	border: solid 8px;
-	z-index: 1;
-}
 .octo-corner-hor{
 	position: absolute;
-	height: 280px;
+	height: 110px;
+	width: 281px;
+	top: -14.2%;
+	left: 78.3px;
+	border-left: dotted 8px;
+	border-right: dotted 8px;
+	z-index: 2;
+}
+.octo-corner-vert{
+	position: absolute;
+	height: 281px;
 	width: 110px;
-	top: -22.1%;
+	top: -238.1px;
 	left: 38%;
-	border: solid 8px;
-	z-index: 1;
+	border-top: dotted 8px;
+	border-bottom: dotted 8px;
+	z-index: 2;
 }
 /* step decoration */
 .step_wrapper{
