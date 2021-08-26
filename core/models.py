@@ -14,9 +14,11 @@ class OrderedModel(models.Model):
         super().save(*args, **kwargs)
 
         for item in different_items:
-            reserved_postions = ChildModel.objects.filter(user=user).values_list(
+            reserved_postions = ChildModel.objects.values_list(
                 "position", flat=True
             ).distinct()
+            if user is not None:
+                reserved_postions = reserved_postions.filter(user=user)
             reserved_max = max(reserved_postions)
             unreserved_position = min(
                 [i for i in range(0, reserved_max) if i not in reserved_postions]

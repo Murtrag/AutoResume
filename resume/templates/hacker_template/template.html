@@ -1,4 +1,6 @@
 {% load static %}
+{% load bbcode_tags %}
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -34,9 +36,80 @@
 					<div class="col-sm-4 ">
 						<div class="sections text-center cv_card__side_panel">
 							{% for section in sections %}
-								<hr class="hr_style"/>
-								<h3>{{section.content.name}}</h3>
-								<hr class="hr_style"/>
+								{% if forloop.counter|divisibleby:2 %}
+									<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
+										<hr class="hr_style"/>
+										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
+										<hr class="hr_style"/>
+					{% if section.section_type == section_types.Text %}
+						<div class="{{section.section_class_name}}__description indent">
+							<p>
+								{% bbcode section.content.text %}	
+							</p>
+						</div>
+					{% elif section.section_type == section_types.List %}
+
+						{% if section.content.list_item.all %}
+							<div class="row indent">
+							{% for item in section.content.list_item.all%}
+									
+									<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
+									<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.year}}</p>
+									<div class = "col-sm-12 col-md-8 col-xl-8" >
+										<p>{% bbcode item.description %}</p>
+									</div>
+							{% endfor %}
+							</div>
+						{% endif %}
+					{% elif section.section_type == section_types.Graph %}
+					<div  class="skills__container indent row">
+						{% for column in section.content.get_graph_grouped %}
+							<div class="container__frontend col-sm-6">
+								{% for item in column%}
+									<div class="col-sm-12">
+									<span class="legend">{{item.0}}</span>
+									<div class="row">
+									{% for sub_item in item.1%}
+
+											<div style="display:none;" class="col-sm-12 print_show">
+												<span style="font-weight: {{sub_item.weight}};">
+												{{sub_item.name}}
+												</span>
+											</div>
+												{% if sub_item.has_level %}
+											<div class="col-sm-12">
+												<div class="progress graph__bar ">
+													<div
+														class="progress-bar progress-bar-striped progress-bar-animated bg-dark" 
+														role="progressbar" aria-valuenow="{{sub_item.level}}" 
+														aria-valuemin="0" 
+														aria-valuemax="100" 
+														style="width:{{sub_item.level}}%" 
+													<span class="print_hide"style="font-weight: {{sub_item.weight}};" > 
+													{{sub_item.name}}: {{sub_item.level}}% 
+													</span> 
+													</div>
+												</div>
+												{% else %}
+													<div class="col-sm-4">
+													<div class="graph__item">
+														<span style="font-weight: {{sub_item.weight}};">
+															{{sub_item.name}}
+														</span>
+													</div>
+												{% endif %}
+											</div>
+
+									{% endfor %}
+									</div>
+									</div>
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>	
+					{% endif %}
+				</section>
+								{% endif %}
 							{% endfor%}
 						</div>
 					</div>
@@ -45,21 +118,6 @@
 					<div class="col-sm-4 text-center">
 
 							<style>
-							.step_wrapper{
-								height: 130px;
-								display: flex;
-								margin-top: -33%;
-							}
-							.step{
-								background-color: #2b5329;
-								width: 50%;
-							}
-							.center_field_step_left{
-								background: linear-gradient(to bottom right, transparent 15%, #2b5329 5%);
-							}
-							.center_field_step_right{
-								background: linear-gradient(to bottom left, transparent 15%, #2b5329 5%);
-							}
 							</style>
 
 							<div class="center_field">
@@ -68,30 +126,6 @@
 												  <div class="octo1">
 													<div style="overflow: none;">
 														<img src="https://imgur.com/UwCTcHk.png" alt="" width="320" height="316" />
-														<style>
-															.octo-corner{
-																position: absolute;
-																
-															}
-															.octo-corner-vert{
-																position: absolute;
-																height: 110px;
-																width: 280px;
-																top: -14.2%;
-																left: 18%;
-																border: solid 8px;
-																z-index: 1;
-															}
-															.octo-corner-hor{
-																position: absolute;
-																height: 280px;
-																width: 110px;
-																top: -22.1%;
-																left: 38%;
-																border: solid 8px;
-																z-index: 1;
-															}
-														</style>
 													</div>
 												  </div>
 												</div>
@@ -139,9 +173,82 @@
 					<div class="col-sm-4">
 						<div class="sections text-center cv_card__side_panel">
 							{% for section in sections %}
-								<hr class="hr_style"/>
-								<h3>{{section.content.name}}</h3>
-								<hr class="hr_style"/>
+								{% if not forloop.counter|divisibleby:2 %}
+									{% if not section.position == 0%}
+										<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
+											<hr class="hr_style"/>
+											<h3>{{section.content.name}}</h3>
+											<hr class="hr_style"/>
+					{% if section.section_type == section_types.Text %}
+						<div class="{{section.section_class_name}}__description indent">
+							<p>
+								{% bbcode section.content.text %}	
+							</p>
+						</div>
+					{% elif section.section_type == section_types.List %}
+
+						{% if section.content.list_item.all %}
+							<div class="row indent">
+							{% for item in section.content.list_item.all%}
+									
+									<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
+									<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.year}}</p>
+									<div class = "col-sm-12 col-md-8 col-xl-8" >
+										<p>{% bbcode item.description %}</p>
+									</div>
+							{% endfor %}
+							</div>
+						{% endif %}
+					{% elif section.section_type == section_types.Graph %}
+					<div  class="skills__container indent row">
+						{% for column in section.content.get_graph_grouped %}
+							<div class="container__frontend col-sm-6">
+								{% for item in column%}
+									<div class="col-sm-12">
+									<span class="legend">{{item.0}}</span>
+									<div class="row">
+									{% for sub_item in item.1%}
+
+											<div style="display:none;" class="col-sm-12 print_show">
+												<span style="font-weight: {{sub_item.weight}};">
+												{{sub_item.name}}
+												</span>
+											</div>
+												{% if sub_item.has_level %}
+											<div class="col-sm-12">
+												<div class="progress graph__bar ">
+													<div
+														class="progress-bar progress-bar-striped progress-bar-animated bg-dark" 
+														role="progressbar" aria-valuenow="{{sub_item.level}}" 
+														aria-valuemin="0" 
+														aria-valuemax="100" 
+														style="width:{{sub_item.level}}%" 
+													<span class="print_hide"style="font-weight: {{sub_item.weight}};" > 
+													{{sub_item.name}}: {{sub_item.level}}% 
+													</span> 
+													</div>
+												</div>
+												{% else %}
+													<div class="col-sm-4">
+													<div class="graph__item">
+														<span style="font-weight: {{sub_item.weight}};">
+															{{sub_item.name}}
+														</span>
+													</div>
+												{% endif %}
+											</div>
+
+									{% endfor %}
+									</div>
+									</div>
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>	
+					{% endif %}
+										
+									{% endif %}
+								{% endif %}
 							{% endfor%}
 						</div>
 					</div>

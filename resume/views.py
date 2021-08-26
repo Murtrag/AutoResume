@@ -39,5 +39,6 @@ def new_layout(request):
     basic_info = models.BasicInfo.objects.first()
     return render(request, 'hacker_template/template.html', {
         'basic_info': basic_info,
-        "sections": models.Section.objects.all().order_by('-position')
+        "sections": models.Section.objects.all().order_by('position'),
+        "section_types": {key: value for value, key in models.section_types},
     })

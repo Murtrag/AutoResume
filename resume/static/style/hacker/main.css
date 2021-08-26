@@ -67,7 +67,7 @@ body{
 }
 .center_field{
 	position: absolute;
-	top: 64%;
+	top: 225px;
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
@@ -109,13 +109,13 @@ body{
 
 
 .card .card_corner {
-position: absolute;
-top: 45%;
-right: -10%;
-width: 1.7em;
-height: 2em;
-/* background-color: #2b5329; */
-z-index: 2;
+	position: absolute;
+	top: 45%;
+	right: -10%;
+	width: 1.7em;
+	height: 2em;
+	/* background-color: #2b5329; */
+	z-index: 2;
 }
 .card_corner_left {
 	left: -10%;
@@ -131,12 +131,52 @@ z-index: 2;
 }
 
 .card_corner_right .card_corner-triangle {
-position: absolute;
-width: 0;
-height: 0;
-border-style: solid;
-border-width: 0 2em 2em 0;
-border-color: transparent black transparent transparent;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 2em 2em 0;
+	border-color: transparent black transparent transparent;
+}
+
+/* oct frame */
+.octo-corner{
+	position: absolute;
+	border-radius: 2%;
+}
+.octo-corner-vert{
+	position: absolute;
+	height: 110px;
+	width: 280px;
+	top: -14.2%;
+	left: 18%;
+	border: solid 8px;
+	z-index: 1;
+}
+.octo-corner-hor{
+	position: absolute;
+	height: 280px;
+	width: 110px;
+	top: -22.1%;
+	left: 38%;
+	border: solid 8px;
+	z-index: 1;
+}
+/* step decoration */
+.step_wrapper{
+	height: 130px;
+	display: flex;
+	margin-top: -33%;
+}
+.step{
+	background-color: #2b5329;
+	width: 50%;
+}
+.center_field_step_left{
+	background: linear-gradient(to bottom right, transparent 15%, #2b5329 5%);
+}
+.center_field_step_right{
+	background: linear-gradient(to bottom left, transparent 15%, #2b5329 5%);
 }
 
 
