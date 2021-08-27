@@ -18,6 +18,7 @@ class BasicInfoAdmin(admin.ModelAdmin):
 
 @admin.register(models.UrlButton)
 class UrlButtonAdmin(admin.ModelAdmin):
+    list_filter = ("user", )
     list_display = ("name", "users", "url")
     def users(self, obj):
         return ", ".join(u.name for u in obj.user.all())
@@ -26,7 +27,7 @@ class UrlButtonAdmin(admin.ModelAdmin):
 
 @admin.register(models.Section)
 class SectionAdmin(admin.ModelAdmin):
-    list_filter = ("user",)
+    list_filter = ("user", "section_type")
     list_display = ("user", "name", "section_type", "position")
 
 

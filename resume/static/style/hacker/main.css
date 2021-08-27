@@ -108,8 +108,9 @@ body{
 }
 
 .cv_card__side_panel{
-	position: relative !important;
-	top: 85%
+	/* position: relative !important; */
+	/* top: 85% */
+	margin-top: 100%;
 }
 
 
@@ -186,6 +187,10 @@ body{
 }
 .center_field_step_right{
 	background: linear-gradient(to bottom left, transparent 15%, #2b5329 5%);
+}
+
+.sections .card-body__section:nth-child(2){
+	margin-top: 5rem;
 }
 
 

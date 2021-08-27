@@ -34,6 +34,7 @@ class BasicInfo(models.Model):
     address = models.CharField(max_length=45)
     phone_number = models.CharField(max_length=15)
     email = models.CharField(max_length=45)
+    website = models.CharField(max_length=245)
     extra_header = models.TextField(blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
 
@@ -52,7 +53,7 @@ class BasicInfo(models.Model):
         return f"{Site.objects.get_current().domain}/resume/{self.info_id}"
 
     def __str__(self):
-        return f"{self.name} - {self.email} | {self.info_id}"
+        return f"{self.name} - {self.language}"
 
 
 class Section(OrderedModel):
