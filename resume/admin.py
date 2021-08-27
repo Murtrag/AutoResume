@@ -48,40 +48,21 @@ class LanguageAdmin(admin.ModelAdmin):
     list_display = ("name", "image")
 
 class SectionContentUserFilter(admin.SimpleListFilter):
-    # Human-readable title which will be displayed in the
-    # right admin sidebar just above the filter options.
     title = ('user')
-
-    # Parameter for the filter that will be used in the URL query.
     parameter_name = 'userek'
 
     def lookups(self, request, model_admin):
-        """
-        Returns a list of tuples. The first element in each
-        tuple is the coded value for the option that will
-        appear in the URL query. The second element is the
-        human-readable name for the option that will appear
-        in the right sidebar.
-        """
         list = models.BasicInfo.objects.all().values_list('name', 'language', 'pk')
-        formated = [(x[2], (f'{x[0]} - {x[1]}')) for x in list]
+        LanguageDict = {key: val for key, val in models.Language.objects.all().values_list("pk", "name")}
+        formated = [(x[2], (f'{x[0]} - {LanguageDict[x[1]]}')) for x in list]
         return formated
 
     def queryset(self, request, queryset):
-        """
-        Returns the filtered queryset based on the value
-        provided in the query string and retrievable via
-        `self.value()`.
-        """
-        # Compare the requested value (either '80s' or '90s')
-        # to decide how to filter the queryset.
-
         if self.value() is None:
             return None
         queryset = models.SectionContent.objects.filter(section__user__pk=self.value())
         if len(queryset) == 0:
             return models.Section.objects.none()
-            return None
         return queryset 
 
 @admin.register(models.SectionContent)
@@ -90,9 +71,9 @@ class SectionContentAdmin(admin.ModelAdmin):
         section = models.Section.objects.filter(content=obj).first()
         return section
 
-    def user(self, obj):
-        section = models.Section.objects.filter(content=obj).first()
-        return section.user
+    # def user(self, obj):
+    #     section = models.Section.objects.filter(content=obj).first()
+    #     return section.user
     list_filter = (SectionContentUserFilter,)
-    list_display = ("name", "section", "user")
+    list_display = ("name", "section")
 
