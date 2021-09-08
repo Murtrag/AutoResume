@@ -10,6 +10,18 @@ body{
 		padding-left: 1px;
 	}
 }
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1400px !important;
+    }
+}
+
+ .section_right{
+	padding-left: 50px
+}
+
+
 .card{
 	background: black !important;
 	color: #59fe26;
@@ -66,7 +78,7 @@ body{
 }
 .center_field{
 	position: absolute;
-	top: 225px;
+	top: 305px;
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
@@ -76,7 +88,7 @@ body{
 }
 
 .center_field__name{
-	margin-top: 10%;
+	/* margin-top: 10%; */
 }
 .center_field__expectations{
 	padding: 1rem;
@@ -156,8 +168,8 @@ body{
 	position: absolute;
 	height: 110px;
 	width: 281px;
-	top: -14.2%;
-	left: 78.3px;
+	top: -19.6%;
+	left: 129.3px;
 	border-left: dotted 8px;
 	border-right: dotted 8px;
 	z-index: 2;
@@ -166,15 +178,15 @@ body{
 	position: absolute;
 	height: 281px;
 	width: 110px;
-	top: -238.1px;
-	left: 38%;
+	top: -293.1px;
+	left: 39.6%;
 	border-top: dotted 8px;
 	border-bottom: dotted 8px;
 	z-index: 2;
 }
 /* step decoration */
 .step_wrapper{
-	height: 130px;
+	height: 200px;
 	display: flex;
 	margin-top: -33%;
 }

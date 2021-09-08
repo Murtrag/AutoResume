@@ -38,11 +38,11 @@
 							{% for section in sections %}
 								{% if forloop.counter|divisibleby:2 %}
 									<!-- <section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
-									<section class="card-body__section"> <!-- @TODO snakecase name  -->
+									<section class="card-body__section section_left text-left"> <!-- @TODO snakecase name  -->
 										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
 										<hr class="hr_style"/>
 					{% if section.section_type == section_types.Text %}
-						<div class="{{section.section_class_name}}__description indent">
+						<div class="{{section.section_class_name}}__description indent ">
 							<p>
 								{% bbcode section.content.text %}	
 							</p>
@@ -50,7 +50,7 @@
 					{% elif section.section_type == section_types.List %}
 
 						{% if section.content.list_item.all %}
-							<div class="row indent">
+							<div class="row indent ">
 							{% for item in section.content.list_item.all%}
 									
 									<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
@@ -176,7 +176,7 @@
 								{% if not forloop.counter|divisibleby:2 %}
 									{% if not section.position == 0%}
 										<!--<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
-										<section class="card-body__section"> <!-- @TODO snakecase name  -->
+										<section class="card-body__section section_right text-left"> <!-- @TODO snakecase name  -->
 										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
 											<hr class="hr_style"/>
 					{% if section.section_type == section_types.Text %}
@@ -246,6 +246,7 @@
 						{% endfor %}
 					</div>	
 					{% endif %}
+					</section>
 										
 									{% endif %}
 								{% endif %}
