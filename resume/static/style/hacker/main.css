@@ -17,6 +17,10 @@ body{
     }
 }
 
+ .card-body__section{
+	 padding-right: 10%;
+ }
+
  .section_right{
 	padding-left: 50px
 }
