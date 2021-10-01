@@ -82,7 +82,7 @@ body{
 }
 .center_field{
 	position: absolute;
-	top: 305px;
+	top: 161px;
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
@@ -126,7 +126,7 @@ body{
 .cv_card__side_panel{
 	/* position: relative !important; */
 	/* top: 85% */
-	margin-top: 100%;
+	margin-top: 50%;
 }
 
 

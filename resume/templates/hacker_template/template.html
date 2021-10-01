@@ -33,7 +33,7 @@
 
 <div class="row cv_card">
 					<!-- left panel -->
-					<div class="col-sm-4 ">
+					<div class="col-sm-5 ">
 						<div class="sections text-center cv_card__side_panel">
 							{% for section in sections %}
 								{% if forloop.counter|divisibleby:2 %}
@@ -55,9 +55,10 @@
 									
 									<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
 									<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
-									<div class = "col-sm-12 col-md-8 col-xl-8" >
-										<p>{% bbcode item.description %}</p>
+									<div class = "col-sm-12 col-md-8 col-xl-8" {% if item.description|length > 0 %} id="test" {% endif %} >
+										<p>{% bbcode item.short_description %}</p>
 									</div>
+									{% include 'resume/modal/modal.html' with title=item.headline description=item.description  %}
 							{% endfor %}
 							</div>
 						{% endif %}
@@ -115,7 +116,7 @@
 					</div>
 
 					<!-- center panel -->
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-2 text-center">
 
 							<style>
 							</style>
@@ -170,7 +171,7 @@
 					</div>
 
 					<!-- right panel -->
-					<div class="col-sm-4">
+					<div class="col-sm-5">
 						<div class="sections text-center cv_card__side_panel">
 							{% for section in sections %}
 								{% if not forloop.counter|divisibleby:2 %}
@@ -193,8 +194,8 @@
 									
 									<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
 									<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
-									<div class = "col-sm-12 col-md-8 col-xl-8" >
-										<p>{% bbcode item.description %}</p>
+									<div class = "col-sm-12 col-md-8 col-xl-8" {% if item.description|length > 0 %} id="test" {% endif %} >
+										<p>{% bbcode item.short_description %}</p>
 									</div>
 							{% endfor %}
 							</div>
@@ -261,6 +262,10 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+// add mouse over
+// display window with long description. Modal??
+</script>
 </body>
 
 </html>

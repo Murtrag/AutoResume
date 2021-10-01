@@ -80,6 +80,10 @@ class Section(OrderedModel):
 
 class ListItem(OrderedModel):
     headline = models.CharField(max_length=90)
+    short_description = models.TextField(
+        help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",
+        blank=True,
+    )
     description = models.TextField(
         help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",
         blank=True,
