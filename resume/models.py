@@ -84,14 +84,14 @@ class ListItem(OrderedModel):
         help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",
         blank=True,
     )
-    year = models.CharField(max_length=25, blank=True)
+    period = models.CharField(max_length=25, blank=True)
     position = models.IntegerField(default=0)
     weight = models.IntegerField(
         validators=[MinValueValidator(100), MaxValueValidator(900)], default=400
     )
 
     def __str__(self):
-        return f"{self.headline} | {self.year}"
+        return f"{self.headline} | {self.period}"
 
 
 class GraphItem(models.Model):

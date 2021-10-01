@@ -101,7 +101,7 @@ class ListItemAdmin(admin.ModelAdmin):
         return section
 
     list_filter = (ListItemUserFilter, )
-    list_display = ("headline", "year", "position", "section")
+    list_display = ("headline", "period", "position", "section")
 
 
 
