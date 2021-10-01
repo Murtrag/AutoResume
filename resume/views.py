@@ -21,7 +21,7 @@ class DisplayResume(View):
                 Prefetch(
                     "content__list_item",
                     queryset=models.ListItem.objects.all().order_by(
-                        "position", "-year"
+                        "position", "-period"
                     ),
                 )
             ),
