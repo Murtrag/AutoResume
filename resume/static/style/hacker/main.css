@@ -210,3 +210,24 @@ body{
 }
 
 
+/* modal decoration */
+.modal-content{
+	background: black !important;
+	border: 1px solid #59fe26 !important;
+}
+.modal-header{
+	border-bottom: 1px dotted #59fe26 !important;
+}
+
+/* list item clickable */
+.list_item_click{
+	border: 1px dotted black;
+}
+
+.list_item_click:hover{
+	cursor: pointer;
+	border: 1px dotted #59fe26;
+	
+}
+
+
