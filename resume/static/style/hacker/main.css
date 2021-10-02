@@ -231,3 +231,16 @@ body{
 }
 
 
+/* skillls graph item */
+.skills__level_bar span.empty{
+	color: #9ccc9c;
+	}
+.skills__level_bar span{
+	font-size: 5rem;
+	color: #0e6b0e;
+	}
+.skills__level_bar{
+	font-size: 0;
+	margin-top: -3rem;
+}
+

@@ -1,0 +1,50 @@
+<div  class="skills__container  indent row" id="skill__{{item.name}}" title="{{item.level}}%">
+	<div class="skills__name col-sm-4">
+		{{item.name }}
+	</div>
+	<div class="skills__level_bar  col-sm-8">
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+		<span>ꞏ</span>
+	</div>
+</div>
+<script>
+var item = '#skill__{{item.name}}';
+var level = {{item.level}};
+var div = level/10;
+var full = Math.floor(div);
+var empty = 10 - Math.ceil(div);
+var is_trans = full+empty != 10;
+var rest = level%10*10+20;
+document.querySelectorAll(`${item} .skills__level_bar span`).forEach(function (e, i) {
+	var elIndex = i+1;
+	if(elIndex<=full){
+	}else if(elIndex-1<=full && is_trans){
+		e.setAttribute("style", `
+						background: linear-gradient(90deg, rgb(14, 107, 14) 0%, rgb(156, 204, 156) ${rest}%);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						`) 
+	}else{
+		e.classList.toggle('empty')
+		
+	}
+})
+</script>
+
+
+
+<!--
+	inter element
+background: linear-gradient(90deg, rgb(14, 107, 14) 0%, rgb(156, 204, 156) 80%);
+    background-clip: border-box;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-->
