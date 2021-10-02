@@ -35,12 +35,28 @@ class DisplayResume(View):
 class DisplayPrintResume(DisplayResume):
     template = "resume/print.html"
 
-def new_layout(request):
-    basic_info = models.BasicInfo.objects.first()
-    languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email)
-    return render(request, 'hacker_template/template.html', {
+class DisplayHackerResume(View):
+    template = "hacker_template/template.html"
+
+    def _get_context(self, request, info_id):
+        basic_info = models.BasicInfo.objects.get(info_id=info_id)
+        languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email)
+        return {
         "languages": languages,
         'basic_info': basic_info,
-        "sections": models.Section.objects.all().order_by('position'),
+        "sections": models.Section.objects.filter(user=basic_info).order_by('position'),
         "section_types": {key: value for value, key in models.section_types},
-    })
+    }
+    def get(self, request, info_id):
+        return render(request, self.template, self._get_context(request, info_id))
+
+
+# def new_layout(request):
+#     basic_info = models.BasicInfo.objects.get(info_id=info_id)
+#     languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email)
+#     return render(request, 'hacker_template/template.html', {
+#         "languages": languages,
+#         'basic_info': basic_info,
+#         "sections": models.Section.objects.all().order_by('position'),
+#         "section_types": {key: value for value, key in models.section_types},
+#     })

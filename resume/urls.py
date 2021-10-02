@@ -4,11 +4,11 @@ from . import views
 
 
 urlpatterns = [
-    re_path("new-layout/", views.new_layout, name="new_resume"),
+    re_path("hr/(?P<info_id>\w+)", views.DisplayHackerResume.as_view(), name="new_resume"),
+    re_path("st/(?P<info_id>\w+)", views.DisplayResume.as_view(), name="resume"),
     re_path(
         "(?P<info_id>\w+)/print/$",
         views.DisplayPrintResume.as_view(),
         name="print_resume",
     ),
-    re_path("(?P<info_id>\w+)", views.DisplayResume.as_view(), name="resume"),
 ]

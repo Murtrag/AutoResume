@@ -29,6 +29,10 @@ class Language(models.Model):
         return self.name
 
 class BasicInfo(models.Model):
+    style_choices = [
+        ('st', 'standard'),
+        ('hr', 'hacker'),
+    ]
     info_id = models.CharField(max_length=32, blank=True, null=True, editable=False)
     name = models.CharField(max_length=25)
     address = models.CharField(max_length=45)
@@ -37,6 +41,10 @@ class BasicInfo(models.Model):
     website = models.CharField(max_length=245)
     extra_header = models.TextField(blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
+
+    cv_style = models.CharField(max_length=2, choices=style_choices)
+
+    
 
     def save(self, *args, **kwargs):
         if self.info_id is None:
@@ -50,7 +58,7 @@ class BasicInfo(models.Model):
 
     @property
     def resume_url(self):
-        return f"{Site.objects.get_current().domain}/resume/{self.info_id}"
+        return f"{Site.objects.get_current().domain}/resume/{self.cv_style}/{self.info_id}"
 
     def __str__(self):
         return f"{self.name} - {self.language}"
