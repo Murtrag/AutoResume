@@ -37,7 +37,9 @@ class DisplayPrintResume(DisplayResume):
 
 def new_layout(request):
     basic_info = models.BasicInfo.objects.first()
+    languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email)
     return render(request, 'hacker_template/template.html', {
+        "languages": languages,
         'basic_info': basic_info,
         "sections": models.Section.objects.all().order_by('position'),
         "section_types": {key: value for value, key in models.section_types},
