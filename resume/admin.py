@@ -8,8 +8,8 @@ from django.utils.html import format_html
 class BasicInfoAdmin(admin.ModelAdmin):
     def link_resume_url(self, obj):
         return format_html(
-            "<a target='_blank' href='{0}'>{1}</a>",
-            redirect("resume", info_id=obj.info_id).url,
+            "<a target='_blank' href='{0}'>{0}</a>",
+            # redirect("resume", info_id=obj.info_id).url,
             obj.resume_url,
         )
 
