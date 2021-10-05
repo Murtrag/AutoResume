@@ -100,6 +100,8 @@ class ListItem(OrderedModel):
         help_text="This field supports bbcode https://en.wikipedia.org/wiki/BBCode",
         blank=True,
     )
+    # tutaj podpiąc pod itemki z bsreafcase
+    images = models.ForeignKey('briefcase.Item',blank=True, null=True, on_delete=models.CASCADE)
     period = models.CharField(max_length=25, blank=True)
     position = models.IntegerField(default=0)
     weight = models.IntegerField(
