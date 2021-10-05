@@ -6,6 +6,7 @@ from itertools import groupby
 from string import ascii_letters, digits
 
 from django.db import models
+from django.urls import reverse
 from core.models import OrderedModel
 from django.contrib.sites.models import Site
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -43,6 +44,7 @@ class BasicInfo(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
 
     cv_style = models.CharField(max_length=2, choices=style_choices)
+    is_homepage = models.BooleanField()
 
     
 
@@ -58,6 +60,8 @@ class BasicInfo(models.Model):
 
     @property
     def resume_url(self):
+        if self.is_homepage:
+            return reverse('homepage')
         return f"{Site.objects.get_current().domain}/resume/{self.cv_style}/{self.info_id}"
 
     def __str__(self):

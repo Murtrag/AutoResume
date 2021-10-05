@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect, get_object_or_404
 from . import models
 from briefcase.models import Type
 from django.db.models import Prefetch
 from django.views import View
+from django.urls import reverse
 
 
 class DisplayResume(View):
@@ -50,6 +52,16 @@ class DisplayHackerResume(View):
     def get(self, request, info_id):
         return render(request, self.template, self._get_context(request, info_id))
 
+def index_view(request):
+    basic_info = get_object_or_404(models.BasicInfo, is_homepage=True)
+    # basic_info = models.BasicInfo.objects.get(is_homepage=True)
+    if (basic_info.cv_style == 'hr'):
+        return DisplayHackerResume.as_view()(request, basic_info.info_id)
+    elif (basic_info.cv_style == 'st'):
+        return DisplayResume.as_view()(request, basic_info.info_id)
+    else:
+        return HttpResponse("Could not find CV set as homepage ")
+        
 
 # def new_layout(request):
 #     basic_info = models.BasicInfo.objects.get(info_id=info_id)
