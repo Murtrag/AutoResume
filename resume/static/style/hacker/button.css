@@ -1,0 +1,13 @@
+.svg-button-hover{
+  fill:var(--vivid)!important;
+}
+
+.svg-button path {
+	fill: transparent;
+  stroke: var(--vivid);
+  stroke-width: 2px;
+}
+
+.svg-button text {
+	  fill: black;
+}

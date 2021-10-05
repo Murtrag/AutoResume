@@ -13,6 +13,7 @@
 <meta name="description" content="The HTML5 Herald">
 <meta name="author" content="Czernik">
 <link rel="stylesheet" href="{% static 'style/hacker/main.css'%}">
+<link rel="stylesheet" href="{% static 'style/hacker/button.css'%}">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -129,10 +130,8 @@
 								 </div>
 
 								<hr class="hr_style"/>
-
-									{% for button in buttons %}
-										{{button}}
-										
+									{% for button in url_buttons %}
+										{% include 'hacker_template/items/button.html' with name=button.name url=button.url %}
 									{% endfor %}
 							</div>
 						</div>
@@ -195,6 +194,8 @@
 	$("#language_select > option").on("click", function() {
 		window.location.href = $( this ).val();
 	})
+</script>
+<script src="{% static 'script/button.js'%}"> </script>
 </script>
 </body>
 </html>

@@ -1,3 +1,10 @@
+:root{
+	--vivid: #149414;
+	--dark: #0e6b0e;
+	--light: #649568;
+	--lighter: #9ccc9c;
+	--bg: #2b5329;
+	}
 body{
 	background-color: silver;
 	font-family: 'Newsreader', serif;
@@ -86,7 +93,7 @@ body{
 	left: -10%;
 	z-index: 1;
 	background: #2b5329;
-	min-height: 1068px; 
+	min-height: 1440px;
 	width: 120%;
 	/* border-radius: 30% 30% 0 0; */
 }
