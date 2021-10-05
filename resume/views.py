@@ -54,7 +54,6 @@ class DisplayHackerResume(View):
 
 def index_view(request):
     basic_info = get_object_or_404(models.BasicInfo, is_homepage=True)
-    # basic_info = models.BasicInfo.objects.get(is_homepage=True)
     if (basic_info.cv_style == 'hr'):
         return DisplayHackerResume.as_view()(request, basic_info.info_id)
     elif (basic_info.cv_style == 'st'):
