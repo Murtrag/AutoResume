@@ -42,7 +42,7 @@ class DisplayHackerResume(View):
 
     def _get_context(self, request, info_id):
         basic_info = models.BasicInfo.objects.get(info_id=info_id)
-        languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email)
+        languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email, cv_style=basic_info.cv_style)
         # images from briefcase
         # briefcase = Type.objects.get(user__in=[basic_info])
         # breakpoint()
