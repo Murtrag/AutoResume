@@ -1,5 +1,12 @@
-.svg-button-hover{
+.svg-button-hover-bg{
   fill:var(--vivid)!important;
+}
+.svg-button-hover-bold{
+  font-weight: bold;
+}
+
+svg.svg-button{
+  margin: 1.2rem;
 }
 
 .svg-button path {

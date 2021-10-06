@@ -73,7 +73,7 @@
 										>
 										<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
 										<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
-										<div class = "col-sm-12 col-md-8 col-xl-8" {% if item.description|length > 0 %} id="test" {% endif %} >
+										<div class = "col-sm-12 col-md-8 col-xl-8" >
 											<p>{% bbcode item.short_description %}</p>
 										</div>
 										{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk  %}
@@ -139,9 +139,13 @@
 								 </div>
 
 								<hr class="hr_style"/>
+								<!--<div class="row"> -->
 									{% for button in url_buttons %}
-										{% include 'hacker_template/items/button.html' with name=button.name url=button.url %}
+										<!--<div class="col-sm-6"> -->
+											{% include 'hacker_template/items/button.html' with name=button.name url=button.url %}
+										<!--</div>-->
 									{% endfor %}
+								<!--</div> -->
 							</div>
 						</div>
 					</div>
@@ -165,7 +169,7 @@
 					{% elif section.section_type == section_types.List %}
 
 						{% if section.content.list_item.all %}
-							<div class="row indent">
+							<div class="indent">
 							{% for item in section.content.list_item.all%}
 									
 									<div
