@@ -50,7 +50,7 @@
 										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
 										<hr class="hr_style"/>
 					{% if section.section_type == section_types.Text %}
-						<div class="{{section.section_class_name}}__description indent " {%if section.max_height %} style="max-height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
+						<div class="{{section.section_class_name}}__description indent " {%if section.max_height %} style="height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
 							<p>
 								{% bbcode section.content.text %}	
 							</p>
@@ -58,7 +58,7 @@
 					{% elif section.section_type == section_types.List %}
 
 						{% if section.content.list_item.all %}
-							<div class="indent" {%if section.max_height %} style="max-height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
+							<div class="indent" {%if section.max_height %} style="height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
 							{% for item in section.content.list_item.all%}
 									
 									<div
@@ -161,7 +161,7 @@
 										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
 											<hr class="hr_style"/>
 					{% if section.section_type == section_types.Text %}
-						<div class="{{section.section_class_name}}__description indent" {%if section.max_height %} style="max-height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
+						<div class="{{section.section_class_name}}__description indent" {%if section.max_height %} style="height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
 							<p>
 								{% bbcode section.content.text %}	
 							</p>
@@ -169,7 +169,7 @@
 					{% elif section.section_type == section_types.List %}
 
 						{% if section.content.list_item.all %}
-							<div class="indent" {%if section.max_height %} style="max-height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
+							<div class="indent" {%if section.max_height %} style="height:{{section.max_height}}; overflow:auto; overflow-x:hidden" {%endif%}>
 							{% for item in section.content.list_item.all%}
 									
 									<div
