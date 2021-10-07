@@ -79,6 +79,7 @@ class Section(OrderedModel):
         help_text="Determines position on resume, section with the smallest number will be on  the top",
         default=0,
     )
+    max_height = models.SmallIntegerField(help_text="Height of the section, scrolbar if overflows", null=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs, user=self.user)
