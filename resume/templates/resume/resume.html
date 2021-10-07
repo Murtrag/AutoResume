@@ -64,7 +64,7 @@
 
 											<div style="display:none;" class="col-sm-12 print_show">
 												<span style="font-weight: {{sub_item.weight}};">
-												{{sub_item.name}}
+															{{sub_item.name}}{% if sub_item.level_desc %} ({{sub_item.level_desc}}) {% endif %}
 												</span>
 											</div>
 												{% if sub_item.has_level %}
@@ -85,7 +85,7 @@
 													<div class="col-sm-4">
 													<div class="graph__item">
 														<span style="font-weight: {{sub_item.weight}};">
-															{{sub_item.name}}
+															{{sub_item.name}}{% if sub_item.level_desc %} ({{sub_item.level_desc}}) {% endif %}
 														</span>
 													</div>
 												{% endif %}

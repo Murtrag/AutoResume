@@ -120,6 +120,7 @@ class GraphItem(models.Model):
     level = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(100)], default=0
     )
+    level_desc = models.CharField(max_length=25, help_text="This is a text description of the proficiency level", blank=True)
     position = models.IntegerField(default=0)
     weight = models.IntegerField(
         validators=[MinValueValidator(100), MaxValueValidator(900)], default=400

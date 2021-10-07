@@ -1,4 +1,8 @@
-<div  class="skills__container  indent row" id="skill__{{item.name}}" title="{{item.name}}: {{item.level}}%">
+<div 
+	class="skills__container  indent row"
+	id="skill__{{item.name}}"
+	title="{{item.name}}: {% if item.level_desc %} {{item.level_desc}} {% else %} {{item.level}}% {% endif %}"
+	>
 	<div class="skills__name col-sm-4">
 		{{item.name }}
 	</div>
