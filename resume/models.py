@@ -30,10 +30,11 @@ class Language(models.Model):
         return self.name
 
 class BasicInfo(models.Model):
-    style_choices = [
-        ('st', 'standard'),
-        ('hr', 'hacker'),
-    ]
+    style_choices = {
+        'st' : 'standard',
+        'hr': 'hacker',
+        }
+
     info_id = models.CharField(max_length=32, blank=True, null=True, editable=False)
     name = models.CharField(max_length=25)
     address = models.CharField(max_length=45)
@@ -43,7 +44,7 @@ class BasicInfo(models.Model):
     extra_header = models.TextField(blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
 
-    cv_style = models.CharField(max_length=2, choices=style_choices)
+    cv_style = models.CharField(max_length=2, choices=style_choices.items())
     is_homepage = models.BooleanField()
 
     
@@ -65,7 +66,7 @@ class BasicInfo(models.Model):
         return f"{Site.objects.get_current().domain}/resume/{self.cv_style}/{self.info_id}"
 
     def __str__(self):
-        return f"{self.name} - {self.language}"
+        return f"{self.id}:{self.name} - {self.language} [{self.style_choices[self.cv_style]}]"
 
 
 class Section(OrderedModel):
