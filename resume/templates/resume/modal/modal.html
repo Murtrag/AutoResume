@@ -4,11 +4,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title dynamic_title" id="exampleModalLabel">{{title}}</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			</div>
 			<div class="modal-body">
-				{% if description %}
-					<p>{% bbcode item.description %}</p>
-				{% else %}
+				{% if images %}
 
 					<div id="ImageCarousels" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
@@ -34,6 +33,11 @@
 						</a>
 					</div>
 				{% endif %}
+				{% if description %}
+				<div style="margin: 1rem;">
+					<p>{% bbcode item.description %}</p>
+				</div>
+				{% endif %}					
 			</div>
 		</div>
 	</div>

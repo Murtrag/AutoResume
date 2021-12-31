@@ -2,241 +2,241 @@
 {% load bbcode_tags %}
 
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
 
-<meta name="description" content="The HTML5 Herald">
-<meta name="author" content="Czernik">
-<link rel="stylesheet" href="{% static 'style/hacker/main.css'%}">
-<link rel="stylesheet" href="{% static 'style/hacker/button.css'%}">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-
-<body>
-	<div class="container">
-
-		<div class="card">
-			<div class="card-body card__header">
+		<meta name="description" content="The HTML5 Herald">
+		<meta name="author" content="Czernik">
+		<link rel="stylesheet" href="{% static 'style/hacker/main.css'%}">
+		<link rel="stylesheet" href="{% static 'style/hacker/button.css'%}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
 
 
-<div class="col-sm-12 ">
-	<select id="language_select" class="hacker_select">
+	<body>
+		<div class="container">
 
-			{% for language in languages %}
-				{% if language.language.name == basic_info.language.name %}
-					<option value="{{language.resume_url}}" selected>{{language.language.image}}&emsp;{{language.language.name}}</option>
-				{% else %}
-					<option value="{{language.resume_url}}">{{language.language.image}}&emsp;{{language.language.name}}</option>
-				{% endif %}
-			{% endfor %}
-	</select>
-</div>
-<div class="row cv_card">
+			<div class="card">
+				<div class="card-body card__header">
 
 
-					<!-- left panel -->
-					<div class="col-sm-5 ">
-						<div class="sections text-center cv_card__side_panel">
-							{% for section in sections %}
-								{% if forloop.counter|divisibleby:2 %}
-									<!-- <section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
-									<section class="card-body__section section_left text-left" > 
-										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
-										<hr class="hr_style"/>
-					{% if section.section_type == section_types.Text %}
-							{% if section.max_height%}
-								<div class="{{section.section_class_name}}__description indent scroll" style="height:{{section.max_height}};">
+					<div class="col-sm-12 ">
+						<select id="language_select" class="hacker_select">
+
+							{% for language in languages %}
+							{% if language.language.name == basic_info.language.name %}
+							<option value="{{language.resume_url}}" selected>{{language.language.image}}&emsp;{{language.language.name}}</option>
 							{% else %}
-								<div class="indent">
+							<option value="{{language.resume_url}}">{{language.language.image}}&emsp;{{language.language.name}}</option>
 							{% endif %}
-							<p>
-								{% bbcode section.content.text %}	
-							</p>
-						</div>
-					{% elif section.section_type == section_types.List %}
-
-						{% if section.content.list_item.all %}
-							{% if section.max_height%}
-								<div class="indent scroll" style="height:{{section.max_height}};">
-							{% else %}
-								<div class="indent">
-							{% endif %}
-							{% for item in section.content.list_item.all%}
-									
-									<div
-										data-toggle="modal"
-										{% if item.description|length > 0 %}
-											class="row list_item_click" 
-											data-target="#descModal_{{item.pk}}"
-										{% else %}
-											class="row" 
-										{% endif %}
-										title="click to get full description"
-										>
-										<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
-										<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
-										<div class = "col-sm-12 col-md-8 col-xl-8" >
-											<p>{% bbcode item.short_description %}</p>
-										</div>
-										{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk  %}
-									</div>
 							{% endfor %}
-							</div>
-						{% endif %}
-					{% elif section.section_type == section_types.Graph %}
-						{% for item in section.content.graph_item.all %}
-							{% include 'resume/items/skill_bar.html' with item=item %}
-						{% endfor %}
-					{% endif %}
-				</section>
-								{% endif %}
-							{% endfor%}
-						</div>
+						</select>
 					</div>
+					<div class="row cv_card">
 
-					<!-- center panel -->
-					<div class="col-sm-2 text-center">
 
-							<style>
-							</style>
+						<!-- left panel -->
+						<div class="col-sm-5 ">
+							<div class="sections text-center cv_card__side_panel">
+								{% for section in sections %}
+								{% if forloop.counter|divisibleby:2 %}
+								<!-- <section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
+								<section class="card-body__section section_left text-left" > 
+									<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
+									<hr class="hr_style"/>
+									{% if section.section_type == section_types.Text %}
+									{% if section.max_height%}
+									<div class="{{section.section_class_name}}__description indent scroll" style="height:{{section.max_height}};">
+										{% else %}
+										<div class="indent">
+											{% endif %}
+											<p>
+											{% bbcode section.content.text %}	
+											</p>
+										</div>
+										{% elif section.section_type == section_types.List %}
 
-							<div class="center_field">
+										{% if section.content.list_item.all %}
+										{% if section.max_height%}
+										<div class="indent scroll" style="height:{{section.max_height}};">
+											{% else %}
+											<div class="indent">
+												{% endif %}
+												{% for item in section.content.list_item.all%}
+
+												<div
+														data-toggle="modal"
+														{% if item.description|length > 0 %}
+														class="row list_item_click" 
+														data-target="#descModal_{{item.pk}}"
+														{% else %}
+														class="row" 
+														{% endif %}
+														title="click to get full description"
+														>
+														<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
+														<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
+														<div class = "col-sm-12 col-md-8 col-xl-8" >
+															<p>{% bbcode item.short_description %}</p>
+														</div>
+												</div>
+														{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk  %}
+												{% endfor %}
+											</div>
+											{% endif %}
+											{% elif section.section_type == section_types.Graph %}
+											{% for item in section.content.graph_item.all %}
+											{% include 'resume/items/skill_bar.html' with item=item %}
+											{% endfor %}
+											{% endif %}
+								</section>
+								{% endif %}
+								{% endfor%}
+										</div>
+									</div>
+
+									<!-- center panel -->
+									<div class="col-sm-2 text-center">
+
+										<style>
+										</style>
+
+										<div class="center_field">
 											<div class="part">
 												<div class="octo">
-												  <div class="octo1">
-													<div style="overflow: none;">
-														<img src="https://imgur.com/UwCTcHk.png" alt="" width="320" height="316" />
+													<div class="octo1">
+														<div style="overflow: none;">
+															<img src="https://imgur.com/UwCTcHk.png" alt="" width="320" height="316" />
+														</div>
 													</div>
-												  </div>
 												</div>
-														<div class="octo-corner octo-corner-vert"></div>
-														<div class="octo-corner octo-corner-hor"></div>
-														<div class="octo-corner octo-corner-sl-front"></div>
-														<div class="octo-corner octo-corner-sl-back"></div>
+												<div class="octo-corner octo-corner-vert"></div>
+												<div class="octo-corner octo-corner-hor"></div>
+												<div class="octo-corner octo-corner-sl-front"></div>
+												<div class="octo-corner octo-corner-sl-back"></div>
 
-								<div class="step_wrapper">
-									<div class="step center_field_step_left"></div>
-									<div class="step center_field_step_right"></div>
-								</div>
+												<div class="step_wrapper">
+													<div class="step center_field_step_left"></div>
+													<div class="step center_field_step_right"></div>
+												</div>
 
-								 <div class="center_field__name">
-									 <h1>{{basic_info.name}}</h2>
-									 <h2 class="font_black font_title">Backend Developer</h2>
-								 </div>
-								 <div class="center_field__expectations">
-								 	{{ sections.0.content.text }}
-								 </div>
+												<div class="center_field__name">
+													<h1>{{basic_info.name}}</h2>
+													<h2 class="font_black font_title">Backend Developer</h2>
+												</div>
+												<div class="center_field__expectations">
+													{{ sections.0.content.text }}
+												</div>
 
-								<hr class="hr_style"/>
+												<hr class="hr_style"/>
 
-								 <div class="center_field__basic">
-								 	<h3>ADDRESS:</h3>
-								 	<h4 class="font_black">{{basic_info.address}}</h3>
-								 	<h3>PHONE:</h3>
-								 	<h4 class="font_black">{{basic_info.phone_number}}</h3>
-								 	<h3>EMAIL:</h3>
-								 	<h4 class="font_black">{{basic_info.email}}</h3>
-								 	<h3>WEBSITE:</h3>
-								 	<h4 class="font_black">{{basic_info.website}}</h3>
-								 </div>
+												<div class="center_field__basic">
+													<h3>ADDRESS:</h3>
+													<h4 class="font_black">{{basic_info.address}}</h3>
+													<h3>PHONE:</h3>
+													<h4 class="font_black">{{basic_info.phone_number}}</h3>
+													<h3>EMAIL:</h3>
+													<h4 class="font_black">{{basic_info.email}}</h3>
+													<h3>WEBSITE:</h3>
+													<h4 class="font_black">{{basic_info.website}}</h3>
+												</div>
 
-								<hr class="hr_style"/>
-								<!--<div class="row"> -->
-									{% for button in url_buttons %}
-										<!--<div class="col-sm-6"> -->
-											{% include 'hacker_template/items/button.html' with name=button.name url=button.url %}
-										<!--</div>-->
-									{% endfor %}
-								<!--</div> -->
-							</div>
-						</div>
-					</div>
-
-					<!-- right panel -->
-					<div class="col-sm-5">
-						<div class="sections text-center cv_card__side_panel">
-							{% for section in sections %}
-								{% if not forloop.counter|divisibleby:2 %}
-									{% if not section.position == 0%}
-										<!--<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
-										<section class="card-body__section section_right text-left"> <!-- @TODO snakecase name  -->
-										<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
-											<hr class="hr_style"/>
-					{% if section.section_type == section_types.Text %}
-							{% if section.max_height%}
-								<div class="{{section.section_class_name}}__description indent scroll" style="height:{{section.max_height}};">
-							{% else %}
-								<div class="indent">
-							{% endif %}
-							<p>
-								{% bbcode section.content.text %}	
-							</p>
-						</div>
-					{% elif section.section_type == section_types.List %}
-
-						{% if section.content.list_item.all %}
-							{% if section.max_height%}
-								<div class="indent scroll" style="height:{{section.max_height}};">
-							{% else %}
-								<div class="indent">
-							{% endif %}
-							{% for item in section.content.list_item.all%}
-									
-									<div
-										data-toggle="modal"
-										{% if item.description|length > 0 or item.images  %}
-											class="row list_item_click" 
-											data-target="#descModal_{{item.pk}}"
-										{% else %}
-											class="row" 
-										{% endif %}
-										title="click to get full description"
-										>
-
-										<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
-										<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
-										<div class = "col-sm-12 col-md-8 col-xl-8" >
-											<p>{% bbcode item.short_description %}</p>
+												<hr class="hr_style"/>
+												<!--<div class="row"> -->
+												{% for button in url_buttons %}
+												<!--<div class="col-sm-6"> -->
+												{% include 'hacker_template/items/button.html' with name=button.name url=button.url %}
+												<!--</div>-->
+												{% endfor %}
+												<!--</div> -->
+											</div>
 										</div>
-										{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk images=item.images.images.all %}
 									</div>
-							{% endfor %}
+
+									<!-- right panel -->
+									<div class="col-sm-5">
+										<div class="sections text-center cv_card__side_panel">
+											{% for section in sections %}
+											{% if not forloop.counter|divisibleby:2 %}
+											{% if not section.position == 0%}
+											<!--<section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
+											<section class="card-body__section section_right text-left"> <!-- @TODO snakecase name  -->
+												<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
+												<hr class="hr_style"/>
+												{% if section.section_type == section_types.Text %}
+												{% if section.max_height%}
+												<div class="{{section.section_class_name}}__description indent scroll" style="height:{{section.max_height}};">
+													{% else %}
+													<div class="indent">
+														{% endif %}
+														<p>
+														{% bbcode section.content.text %}	
+														</p>
+													</div>
+													{% elif section.section_type == section_types.List %}
+
+													{% if section.content.list_item.all %}
+													{% if section.max_height%}
+													<div class="indent scroll" style="height:{{section.max_height}};">
+														{% else %}
+														<div class="indent">
+															{% endif %}
+															{% for item in section.content.list_item.all%}
+
+															<div
+																	data-toggle="modal"
+																	{% if item.description|length > 0 or item.images  %}
+																	class="row list_item_click" 
+																	data-target="#descModal_{{item.pk}}"
+																	{% else %}
+																	class="row" 
+																	{% endif %}
+																	title="click to get full description"
+																	>
+
+																	<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
+																	<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
+																	<div class = "col-sm-12 col-md-8 col-xl-8" >
+																		<p>{% bbcode item.short_description %}</p>
+																	</div>
+															</div>
+																	{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk images=item.images.images.all %}
+															{% endfor %}
+														</div>
+														{% endif %}
+														{% elif section.section_type == section_types.Graph %}
+														{% for item in section.content.graph_item.all %}
+														{% include 'resume/items/skill_bar.html' with item=item %}
+														{% endfor %}
+														{% endif %}
+											</section>
+
+											{% endif %}
+											{% endif %}
+											{% endfor%}
+													</div>
+												</div>
+										</div>
+									</div>
 							</div>
-						{% endif %}
-					{% elif section.section_type == section_types.Graph %}
-						{% for item in section.content.graph_item.all %}
-							{% include 'resume/items/skill_bar.html' with item=item %}
-						{% endfor %}
-					{% endif %}
-					</section>
-										
-									{% endif %}
-								{% endif %}
-							{% endfor%}
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
 
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-<script>
-	$("select#language_select").on("change", function() {
-		console.log('dziala?');
-		window.location.href = $( this ).val();
-	})
-</script>
-<script src="{% static 'script/button.js'%}"> </script>
-</script>
-</body>
+							<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+							<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+							<script>
+								$("select#language_select").on("change", function() {
+																	window.location.href = $( this ).val();
+																})
+							</script>
+							<script src="{% static 'script/button.js'%}"> </script>
+							</script>
+	</body>
 </html>
 
