@@ -303,6 +303,12 @@ div.scroll::-webkit-scrollbar-thumb {
 	line-height: 2.7rem;;
 }
 
+/* Fix title desc overflowing to another skills gh: #38 */
+.skills__container{
+	max-height: 100%;
+	overflow: hidden;
+}
+
 /* select language style */
 :root {
   --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
