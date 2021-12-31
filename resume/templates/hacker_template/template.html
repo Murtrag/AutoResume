@@ -85,7 +85,7 @@
 															<p>{% bbcode item.short_description %}</p>
 														</div>
 												</div>
-														{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk  %}
+																	{% include 'resume/modal/modal.html' with title=item.headline description=item.description pk=item.pk images=item.images.images.all %}
 												{% endfor %}
 											</div>
 											{% endif %}
