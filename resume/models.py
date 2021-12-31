@@ -9,6 +9,7 @@ from django.db import models
 from django.urls import reverse
 from core.models import OrderedModel
 from django.contrib.sites.models import Site
+from django.template.defaultfilters import slugify
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -86,7 +87,8 @@ class Section(OrderedModel):
 
     @property
     def section_class_name(self):
-        return sub(r"\W", "", sub(r"\s", "_", self.name)).lower()
+        # return sub(r"\W", "", sub(r"\s", "_", self.name)).lower()
+        return f'{slugify(self.name)}_{self.pk}'
 
     def __str__(self):
         return f"{self.user} | {self.name}"
@@ -129,6 +131,9 @@ class GraphItem(models.Model):
 
     def __str__(self):
         return f"{self.category} | {self.name} - {self.level}"
+
+    def graph_class_name(self):
+        return f'{slugify(self.name)}_{self.pk}'
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

@@ -1,6 +1,6 @@
 <div 
 	class="skills__container  indent row"
-	id="skill__{{item.name}}"
+	id="skill__{{item.graph_class_name}}"
 	title="{{item.name}}: {% if item.level_desc %} {{item.level_desc}} {% else %} {{item.level}}% {% endif %}"
 	>
 	<div class="skills__name col-sm-4">
@@ -20,7 +20,7 @@
 	</div>
 </div>
 <script>
-var item = '#skill__{{item.name}}';
+var item = '#skill__{{item.graph_class_name}}';
 var level = {{item.level}};
 var div = level/10;
 var full = Math.floor(div);
