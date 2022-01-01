@@ -25,6 +25,7 @@ section_types = [
 
 class Language(models.Model):
     name = models.CharField(max_length=25)
+    code = models.CharField(max_length=10)
     image = models.CharField(max_length=8, help_text="Use emoji icons https://emojipedia.org/")
 
     def __str__(self):

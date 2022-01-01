@@ -1,5 +1,6 @@
 {% load static %}
 {% load bbcode_tags %}
+{% load i18n %}
 
 <html lang="en">
 	<head>
@@ -137,13 +138,13 @@
 												<hr class="hr_style"/>
 
 												<div class="center_field__basic">
-													<h3>ADDRESS:</h3>
+													<h3>{% translate "ADDRESS"%}:</h3>
 													<h4 class="font_black">{{basic_info.address}}</h3>
-													<h3>PHONE:</h3>
+													<h3>{% translate "PHONE"%}:</h3>
 													<h4 class="font_black">{{basic_info.phone_number}}</h3>
-													<h3>EMAIL:</h3>
+													<h3>{% translate "EMAIL"%}:</h3>
 													<h4 class="font_black">{{basic_info.email}}</h3>
-													<h3>WEBSITE:</h3>
+													<h3>{% translate "WEBSITE"%}:</h3>
 													<h4 class="font_black">{{basic_info.website}}</h3>
 												</div>
 
@@ -224,6 +225,7 @@
 												</div>
 										</div>
 									</div>
+
 							</div>
 
 

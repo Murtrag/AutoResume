@@ -1,4 +1,5 @@
 import os
+from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "../"
@@ -31,6 +32,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -86,6 +88,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 
+# LANGUAGE_CODE = "es"
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"

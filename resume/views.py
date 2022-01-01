@@ -4,9 +4,9 @@ from django.shortcuts import redirect, get_object_or_404
 from . import models
 from briefcase.models import Type
 from django.db.models import Prefetch
+from django.utils import translation
 from django.views import View
 from django.urls import reverse
-
 
 class DisplayResume(View):
     template = "resume/resume.html"
@@ -41,7 +41,10 @@ class DisplayHackerResume(View):
     template = "hacker_template/template.html"
 
     def _get_context(self, request, info_id):
+
+
         basic_info = models.BasicInfo.objects.get(info_id=info_id)
+        translation.activate(basic_info.language.code)
         languages = models.BasicInfo.objects.filter(name=basic_info.name, email=basic_info.email, cv_style=basic_info.cv_style)
         # images from briefcase
         # briefcase = Type.objects.get(user__in=[basic_info])
