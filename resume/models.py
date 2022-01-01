@@ -38,6 +38,8 @@ class BasicInfo(models.Model):
 
     info_id = models.CharField(max_length=32, blank=True, null=True, editable=False)
     name = models.CharField(max_length=25)
+    title = models.CharField(max_length=250, blank=True)
+
     address = models.CharField(max_length=45)
     phone_number = models.CharField(max_length=15)
     email = models.CharField(max_length=45)
