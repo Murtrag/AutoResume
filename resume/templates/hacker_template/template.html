@@ -46,7 +46,7 @@
 							<div class="sections text-center cv_card__side_panel">
 								{% for section in sections %}
 								{% if forloop.counter|divisibleby:2 %}
-								<!-- <section class="card-body__{{section.section_class_name}}"> <!-- @TODO snakecase name  -->
+								<!-- <section class="card-body__{{section.section_class_name}}"> -->
 								<section class="card-body__section section_left text-left" > 
 									<h3> <i class="{{section.icon}}" aria-hidden="true"></i> {{section.name}}</h3>
 									<hr class="hr_style"/>
@@ -78,7 +78,7 @@
 														{% else %}
 														class="row" 
 														{% endif %}
-														title="click to get full description"
+														title="{% translate 'click to get full description'%}"
 														>
 														<h3 style="font-weight: {{item.weight}};" class ="col-sm-12 col-md-8 col-xl-8">{{item.headline}}</h3>
 														<p style="font-weight: {{item.weight}};" class = "col-sm-12 col-md-4 col-xl-4 school__time" >{{item.period}}</p>
@@ -196,6 +196,9 @@
 																	class="row list_item_click" 
 																	data-target="#descModal_{{item.pk}}"
 																	{% else %}
+
+
+
 																	class="row" 
 																	{% endif %}
 																	title="click to get full description"
