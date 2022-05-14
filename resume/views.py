@@ -31,7 +31,11 @@ class DisplayResume(View):
         }
 
     def get(self, request, info_id):
-        return render(request, self.template, self._get_context(request, info_id))
+        context = self._get_context(request, info_id)
+        if request.user_agent.is_pc is False and basic_info.mobile_version:
+            return redirect('resume',info_id=context['basic_info'].mobile_version.info_id)
+
+        return render(request, self.template, context)
 
 
 class DisplayPrintResume(DisplayResume):
@@ -57,7 +61,12 @@ class DisplayHackerResume(View):
         "section_types": {key: value for value, key in models.section_types},
     }
     def get(self, request, info_id):
-        return render(request, self.template, self._get_context(request, info_id))
+        print(request.user_agent.is_pc)
+        context = self._get_context(request, info_id)
+        if request.user_agent.is_pc is False and basic_info.mobile_version:
+            return redirect('resume',info_id=context['basic_info'].mobile_version.info_id)
+
+        return render(request, self.template, context)
 
 def index_view(request):
     basic_info = get_object_or_404(models.BasicInfo, is_homepage=True)

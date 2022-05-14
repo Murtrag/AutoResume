@@ -49,6 +49,8 @@ class BasicInfo(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE, null=True)
 
     cv_style = models.CharField(max_length=2, choices=style_choices.items())
+    mobile_version = models.ForeignKey("BasicInfo", on_delete=models.CASCADE,blank=True, null=True)
+
     is_homepage = models.BooleanField()
 
     
