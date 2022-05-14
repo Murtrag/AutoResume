@@ -63,8 +63,9 @@ class DisplayHackerResume(View):
     def get(self, request, info_id):
         print(request.user_agent.is_pc)
         context = self._get_context(request, info_id)
-        if request.user_agent.is_pc is False and basic_info.mobile_version:
-            return redirect('resume',info_id=context['basic_info'].mobile_version.info_id)
+        mobile_version = context['basic_info'].mobile_version.info_id
+        if request.user_agent.is_pc is False and mobile_version:
+            return redirect('resume',info_id=mobile_version.info_id)
 
         return render(request, self.template, context)
 
