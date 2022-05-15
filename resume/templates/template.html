@@ -42,6 +42,7 @@
 					{% endblock %}
 					</div>
 					<div class="col-sm-4 text-right">
+					{% comment %}
 						{% if languages.count > 1 %}
 						<select id="language_select">
 								{% for language in languages %}
@@ -53,6 +54,7 @@
 								{% endfor %}
 						</select>
 						{% endif %}
+						{% endcomment %}
 					</div>
 				</div>
 
