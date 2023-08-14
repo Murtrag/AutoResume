@@ -6,6 +6,8 @@ The vision of AutoResume is to built a free tool to generate resumés with 100% 
 so everyone can reaarange it however it floots his boat.
 <p align="center">
     <img src="https://i.imgur.com/TBKzjAS.png"/>
+    <img src="https://github.com/Murtrag/AutoResume/assets/19934843/eebf43c0-a8be-4765-a1bd-03495da27e5c" />
+
 </p>
 
 ## Installation
@@ -41,9 +43,14 @@ so for `text` value you should fill up only `Section type's` Text field, for `li
 <img src="https://imgur.com/t0r5SCr.png"/>
 <br />
 All buttons should be initiated from `Types` section so the items and images through items manager.
+<br />
 
+### Examle
+Exaple generated resume:
 
-
-<!-- ## Goals -->
+<a href="http://murtrag.pythonanywhere.com">http://murtrag.pythonanywhere.com/</a>
+<br />
+<a href="http://murtrag.pythonanywhere.com/resume/hr/ff7c5d0883233d749bc718b4e915c19c/">
+<a href="http://murtrag.pythonanywhere.com/resume/hr/ff7c5d0883233d749bc718b4e915c19c/">http://murtrag.pythonanywhere.com/resume/hr/ff7c5d0883233d749bc718b4e915c19c/</a>
 ## License
 MIT License.
